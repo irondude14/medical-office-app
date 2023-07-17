@@ -1,0 +1,2 @@
+class DoctorAvailability < ApplicationRecord
+end
