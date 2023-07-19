@@ -12,4 +12,8 @@ class StaffMember < ApplicationRecord
               with: /\A\+?\d{10,11}\z/,
               message: 'is invalid',
             }
+
+  has_many :appointments
+  has_many :patients, through: :appointments
+  has_many :shifts
 end

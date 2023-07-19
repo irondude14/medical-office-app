@@ -12,4 +12,8 @@ class Patient < ApplicationRecord
               with: /\A\+?\d{10,11}\z/,
               message: 'is invalid',
             }
+
+  has_many :test_results, dependent: :destroy
+  has_many :appointments, dependent: :destroy
+  has_many :staff_members, through: :appointments
 end
