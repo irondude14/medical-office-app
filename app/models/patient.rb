@@ -1,6 +1,4 @@
 class Patient < ApplicationRecord
-  has_secure_password
-
   validates :name, presence: true
   validates :email, uniqueness: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -15,5 +13,5 @@ class Patient < ApplicationRecord
 
   has_many :test_results, dependent: :destroy
   has_many :appointments, dependent: :destroy
-  has_many :staff_members, through: :appointments
+  has_many :users, through: :appointments
 end

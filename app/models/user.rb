@@ -1,4 +1,4 @@
-class StaffMember < ApplicationRecord
+class User < ApplicationRecord
   has_secure_password
 
   validates :name, presence: true
@@ -15,5 +15,4 @@ class StaffMember < ApplicationRecord
 
   has_many :appointments
   has_many :patients, through: :appointments
-  has_many :shifts
 end

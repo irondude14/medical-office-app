@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   resources :test_results
   resources :appointments
   resources :patients
-  resources :staff_members
-  resources :shifts
+  resources :users
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
