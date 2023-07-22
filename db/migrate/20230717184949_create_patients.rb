@@ -5,7 +5,7 @@ class CreatePatients < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :address
       t.string :phone
-      t.string :insurance_name
+      t.string :insurance
 
       t.timestamps
     end
