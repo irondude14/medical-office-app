@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  enum role: %i[admin doctor]
+
   validates :name, presence: true
   validates :email, uniqueness: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
