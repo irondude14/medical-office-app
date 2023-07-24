@@ -1,0 +1,38 @@
+# frozen_string_literal: true
+
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    # Admin can do everything
+    can :manage, :all if user.type == 'admin'
+
+    if user.type == 'doctor'
+      # I'll need to specify premissions for the doctors:
+      # Doctor can read their own record
+      can :read, User, id: user.id
+
+      # Doctor can update their own record
+      can :update, User, id: user.id
+
+      # Doctor can see their own appointments
+      can :read, Appointment, doctor_id: user.id
+
+      # Doctor can see their patients through their appointments
+      can :read, Patient, appointments: { doctor_id: user.id }
+
+      # Doctor can see their patients' test results
+      can :read, TestResult, patient: { appointments: { doctor_id: user.id } }
+
+      # Doctor can create test results for their patients
+      can :create, TestResult do |test_result|
+        user.appointments.exists?(patient_id: test_result.patient_id)
+      end
+
+      # Doctor can update test results for their patients
+      can :update, TestResult do |test_result|
+        user.appointments.exists?(patient_id: test_result.patient_id)
+      end
+    end
+  end
+end
