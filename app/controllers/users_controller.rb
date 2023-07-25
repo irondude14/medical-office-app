@@ -1,20 +1,30 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
 
-  def index
-  end
-
   def show
-  end
-
-  def create
+    render json: current_user
   end
 
   def update
-  end
-
-  def destroy
+    if current_user.update(user_update_params)
+      render json: current_user
+    else
+      render json: {
+               errors: current_userr.errors.full_messages,
+             },
+             status: :unprocessable_entity
+    end
   end
 
   private
+
+  def user_update_params
+    params.require(:user).permit(
+      :name,
+      :email,
+      :phone,
+      :password,
+      :password_confirmation,
+    )
+  end
 end
