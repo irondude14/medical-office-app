@@ -1,13 +1,18 @@
 class AppointmentsController < ApplicationController
   load_and_authorize_resource
+  # before_action :set_appointment, only: %i[show update destroy]
 
   def index
     appointments = Appointment.all
     redner json: appointments
   end
 
+  def show
+    render json: @appointment
+  end
+
   def create
-    appointment = current_user.appointment.create(appointment_params)
+    appointment = Appointment.create(appointment_params)
     if appointment.valid?
       render json: appointment, status: :created
     else
@@ -19,15 +24,40 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    # appointment = current_user
+    if @appointment.update(appointment_update_params)
+      render json: @appointment
+    else
+      render json: {
+               errors: @appointment.errors.full_messages,
+             },
+             status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @appointment.destroy
+    render json: { message: 'Appointment deleted' }, status: :no_content
   end
 
   private
 
+  # def set_appointment
+  #   @appointment = Appointment.find_by(id: params[:id])
+  #   unless @appointment
+  #     render json: { error: 'Appointment not found' }, status: :not_found
+  #   end
+  # end
+
   def appointment_params
-    params.require(:appointment).permit(:patient_id, :name, :date_time, :reason)
+    params.require(:appointment).permit(
+      :patient_id,
+      :user_id,
+      :date_time,
+      :reason,
+    )
+  end
+
+  def appointment_update_params
+    params.require(:appointment).permit(:user_id, :date_time, :reason)
   end
 end

@@ -16,13 +16,13 @@ class Ability
       can :update, User, id: user.id
 
       # Doctor can see their own appointments
-      can :read, Appointment, doctor_id: user.id
+      can :read, Appointment, user_id: user.id
 
       # Doctor can see their patients through their appointments
-      can :read, Patient, appointments: { doctor_id: user.id }
+      can :read, Patient, appointments: { user_id: user.id }
 
       # Doctor can see their patients' test results
-      can :read, TestResult, patient: { appointments: { doctor_id: user.id } }
+      can :read, TestResult, patient: { appointments: { user_id: user.id } }
 
       # Doctor can create test results for their patients
       can :create, TestResult do |test_result|
