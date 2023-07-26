@@ -1,3 +1,5 @@
 class TestResultSerializer < ActiveModel::Serializer
-  attributes :id
+  # attributes :id
+
+  belongs_to :patient
 end
