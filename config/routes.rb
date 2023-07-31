@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :test_results
+  resources :test_results, only: %i[show create update]
   resources :appointments
   resources :patients
-  resources :users
+  resources :users, only: %i[show update]
+  resources :admins, only: %i[index, create, destroy]
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
