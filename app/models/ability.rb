@@ -5,9 +5,9 @@ class Ability
 
   def initialize(user)
     # Admin can do everything
-    if user.type == 'admin'
+    if user.type == 'Admin'
       can :manage, :all
-    elsif user.type == 'doctor'
+    elsif user.type == 'Doctor'
       # I'll need to specify premissions for the doctors:
       # Doctor can read their own record
       can :read, User, id: user.id

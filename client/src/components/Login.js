@@ -31,8 +31,9 @@ function Login() {
         }
       })
       .then((user) => {
+        console.log(user);
         // login(user);
-        navigate('/profile');
+        // navigate('/profile');
       })
       .catch((error) => {
         setError(error.message);

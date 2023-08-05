@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
 
   def index
     appointments = Appointment.all
-    redner json: appointments
+    render json: appointments
   end
 
   def show
