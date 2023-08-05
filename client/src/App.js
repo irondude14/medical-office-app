@@ -3,6 +3,8 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
+import DashboardAdmin from './components/DashboardAdmin';
+import DashboardDoctor from './components/DashboardDoctor';
 
 function App() {
   return (

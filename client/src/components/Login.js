@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/users/UsersSlice';
 
 function Login() {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
   });
+
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   function handleCredentials(e) {
     setCredentials({
@@ -14,7 +21,6 @@ function Login() {
       [e.target.name]: e.target.value,
     });
   }
-  const navigate = useNavigate();
 
   function handleLogin(e) {
     e.preventDefault();
@@ -32,8 +38,8 @@ function Login() {
       })
       .then((user) => {
         console.log(user);
-        // login(user);
-        // navigate('/profile');
+        dispatch(login(user));
+        navigate('/profile');
       })
       .catch((error) => {
         setError(error.message);
