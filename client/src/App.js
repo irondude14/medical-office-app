@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Logout from './components/Logout';
 import ProtectedRoute from './components/ProtectedRoute';
+import UserInfoUpdateForm from './components/UserInfoUpdateForm';
 // import DashboardAdmin from './components/DashboardAdmin';
 // import DashboardDoctor from './components/DashboardDoctor';
 
@@ -20,6 +21,7 @@ function App() {
             path='profile'
             element={<ProtectedRoute path='/profile' element={<Profile />} />}
           />
+          <Route path='userInfoUpdateForm' element={<UserInfoUpdateForm />} />
         </Route>
       </Routes>
     </div>

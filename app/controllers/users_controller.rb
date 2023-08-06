@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       render json: current_user
     else
       render json: {
-               errors: current_userr.errors.full_messages,
+               errors: current_user.errors.full_messages,
              },
              status: :unprocessable_entity
     end

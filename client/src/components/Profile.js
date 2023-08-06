@@ -1,7 +1,6 @@
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { logout } from '../features/users/UsersSlice';
 
 function Profile() {
   const user = useSelector((state) => state.user.value);
@@ -9,24 +8,17 @@ function Profile() {
 
   // console.log(user);
 
-  // function logoutUser() {
-  //   fetch('/logout', {
-  //     method: 'DELETE',
-  //   }).then(() => {
-  //     logout();
-  //     navigate('/');
-  //   });
-  // }
-
   if (user) {
     return (
       <div>
         <h1>Profile</h1>
         <p>Name: {user.name}</p>
         <p>Email: {user.email}</p>
-        <p>Type: {user.type}</p>
+        <p>Position: {user.type}</p>
         <p>Phone: {user.phone}</p>
-        <button>Update Info</button>
+        <button>
+          <Link to={`/userInfoUpdateForm`}>Update Info</Link>
+        </button>
       </div>
     );
   } else {
