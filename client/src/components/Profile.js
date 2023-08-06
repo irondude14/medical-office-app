@@ -1,10 +1,22 @@
 import React from 'react';
+// import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+// import { logout } from '../features/users/UsersSlice';
 
 function Profile() {
   const user = useSelector((state) => state.user.value);
+  // const navigate = useNavigate();
 
-  console.log(user);
+  // console.log(user);
+
+  // function logoutUser() {
+  //   fetch('/logout', {
+  //     method: 'DELETE',
+  //   }).then(() => {
+  //     logout();
+  //     navigate('/');
+  //   });
+  // }
 
   if (user) {
     return (
@@ -19,7 +31,7 @@ function Profile() {
   } else {
     return (
       <div>
-        <h1>Please Log In or contact Administartor</h1>
+        <h1>Please Log In or contact Administrator</h1>
       </div>
     );
   }

@@ -2,21 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
-import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import userReducer from './features/users/UsersSlice';
-
-const store = configureStore({
-  reducer: {
-    user: userReducer,
-  },
-});
+import { store, persistor } from './store';
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </BrowserRouter>,
   document.getElementById('root')
