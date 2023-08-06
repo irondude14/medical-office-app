@@ -1,20 +1,31 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Navbar() {
+  const user = useSelector((state) => state.user.value);
+  console.log(user);
+
   return (
     <div>
       <nav>
         <ul>
-          <button>
-            <Link to='/profile'>Profile</Link>
-          </button>
-          <button>
-            <Link to='/login'>Login</Link>
-          </button>
-          <button>
-            <Link to='/logout'>Logout</Link>
-          </button>
+          {user ? (
+            <>
+              <button>
+                <Link to='/profile'>Profile</Link>
+              </button>
+              <button>
+                <Link to='/logout'>Logout</Link>
+              </button>
+            </>
+          ) : (
+            <>
+              <button>
+                <Link to='/login'>Login</Link>
+              </button>
+            </>
+          )}
         </ul>
       </nav>
       <Outlet />

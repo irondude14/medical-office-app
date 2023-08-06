@@ -26,6 +26,7 @@ function Profile() {
         <p>Email: {user.email}</p>
         <p>Type: {user.type}</p>
         <p>Phone: {user.phone}</p>
+        <button>Update Info</button>
       </div>
     );
   } else {
