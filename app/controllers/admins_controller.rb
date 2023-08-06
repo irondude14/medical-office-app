@@ -1,6 +1,5 @@
 class AdminsController < ApplicationController
-  load_and_authorize_resource :user
-
+  load_and_authorize_resource except: :create
   def index
     @doctors = User.where(type: 'doctor')
     render json: @doctors
@@ -8,6 +7,7 @@ class AdminsController < ApplicationController
 
   def create
     user = User.new(user_params)
+    authorize! :create, user
     if user.save
       render json: user, status: :created
     else

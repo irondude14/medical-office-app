@@ -39,6 +39,12 @@ function UserInfoUpdate() {
     setUpdateInfo(user || {});
   }, [user]);
 
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
+
   function handleUserInfo(e) {
     setUpdateInfo({
       ...updateInfo,
@@ -51,14 +57,14 @@ function UserInfoUpdate() {
   }
 
   return (
-    <form onSubmit={updateUser} className='form'>
+    <form onSubmit={updateUser}>
       <h3>Update Account Info: </h3>
       <label htmlFor='name'>Name:</label>
       <input
         type='text'
         name='name'
         value={updateInfo.name || ''}
-        // required
+        required
         onChange={handleUserInfo}
       />
       <br />

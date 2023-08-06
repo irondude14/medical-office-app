@@ -4,10 +4,9 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Logout from './components/Logout';
-import ProtectedRoute from './components/ProtectedRoute';
+// import ProtectedRoute from './components/ProtectedRoute';
 import UserInfoUpdateForm from './components/UserInfoUpdateForm';
-// import DashboardAdmin from './components/DashboardAdmin';
-// import DashboardDoctor from './components/DashboardDoctor';
+import CreateNewUserForm from './components/CreateNewUserForm';
 
 function App() {
   return (
@@ -17,11 +16,9 @@ function App() {
           <Route path='/' element={<Navigate to='/login' />} />
           <Route path='login' element={<Login />} />
           <Route path='logout' element={<Logout />} />
-          <Route
-            path='profile'
-            element={<ProtectedRoute path='/profile' element={<Profile />} />}
-          />
+          <Route path='profile' element={<Profile />} />
           <Route path='userInfoUpdateForm' element={<UserInfoUpdateForm />} />
+          <Route path='createNewUserForm' element={<CreateNewUserForm />} />
         </Route>
       </Routes>
     </div>
@@ -29,3 +26,6 @@ function App() {
 }
 
 export default App;
+
+// import DashboardAdmin from './components/DashboardAdmin';
+// import DashboardDoctor from './components/DashboardDoctor';
