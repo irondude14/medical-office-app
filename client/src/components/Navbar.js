@@ -9,6 +9,19 @@ function Navbar() {
     <div>
       <nav>
         <ul>
+          {user && user.type === 'Admin' ? (
+            <>
+              <button>
+                <Link to='/dashboardAdmin'>Dashboard</Link>
+              </button>
+            </>
+          ) : (
+            <>
+              <button>
+                <Link to='/dashboardDoctor'>Dashboard</Link>
+              </button>
+            </>
+          )}
           {user ? (
             <>
               <button>
