@@ -4,6 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    return unless user
     # Admin can do everything
     if user.type == 'Admin'
       can :manage, :all

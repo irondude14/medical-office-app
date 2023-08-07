@@ -6,6 +6,7 @@ import Profile from './components/Profile';
 import Logout from './components/Logout';
 import UserInfoUpdateForm from './components/UserInfoUpdateForm';
 import CreateNewUserForm from './components/CreateNewUserForm';
+import CreateNewPatientForm from './components/CreateNewPatientForm';
 import DashboardAdmin from './components/DashboardAdmin';
 import DashboardDoctor from './components/DashboardDoctor';
 
@@ -22,6 +23,10 @@ function App() {
           <Route path='createNewUserForm' element={<CreateNewUserForm />} />
           <Route path='dashboardAdmin' element={<DashboardAdmin />} />
           <Route path='dashboardDoctor' element={<DashboardDoctor />} />
+          <Route
+            path='createNewPatientForm'
+            element={<CreateNewPatientForm />}
+          />
         </Route>
       </Routes>
     </div>

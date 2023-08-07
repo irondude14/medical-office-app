@@ -37,7 +37,6 @@ function Login() {
         }
       })
       .then((user) => {
-        console.log(user);
         dispatch(login(user));
         navigate('/profile');
       })

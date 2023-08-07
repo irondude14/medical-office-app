@@ -25,11 +25,6 @@ function Profile() {
         <button>
           <Link to={`/userInfoUpdateForm`}>Update Info</Link>
         </button>
-        {user.type === 'Admin' ? (
-          <button>
-            <Link to={'/createNewUserForm'}>Register New User</Link>
-          </button>
-        ) : null}
       </div>
     );
   } else {
