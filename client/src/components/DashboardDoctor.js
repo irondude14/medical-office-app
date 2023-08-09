@@ -38,7 +38,7 @@ function DashboardDoctor() {
       </div>
     ));
 
-  console.group(user);
+  console.log(user);
   return (
     <>
       <div>

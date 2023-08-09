@@ -1,19 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './features/users/UsersSlice';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import userReducer from './features/users/UsersSlice';
+import doctorsReducer from './features/users/DoctorsSlice';
+import patientsReducer from './features/users/PatientsSlice';
+
 const persistConfig = {
-  key: 'user',
+  key: 'root',
   storage,
+  whitelist: ['user', 'doctors', 'patients'],
 };
 
-const persistedUserReducer = persistReducer(persistConfig, userReducer);
+const rootReducer = combineReducers({
+  user: userReducer,
+  doctors: doctorsReducer,
+  patients: patientsReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 let store = configureStore({
-  reducer: {
-    user: persistedUserReducer,
-  },
+  reducer: persistedReducer,
 });
 
 let persistor = persistStore(store);

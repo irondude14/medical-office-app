@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../features/users/UsersSlice';
+import { setDoctors } from '../features/users/DoctorsSlice';
+import { setPatients } from '../features/users/PatientsSlice';
 
 function Login() {
   const [credentials, setCredentials] = useState({
@@ -36,9 +38,16 @@ function Login() {
           throw new Error('Invalid email or password');
         }
       })
-      .then((user) => {
-        dispatch(login(user));
-        navigate('/profile');
+      .then((data) => {
+        if (data.user && data.user.type === 'Admin') {
+          dispatch(login(data.user));
+          dispatch(setDoctors(data.doctors));
+          dispatch(setPatients(data.patients));
+          navigate('/profile');
+        } else if (data.user && data.user.type === 'Doctor') {
+          dispatch(login(data.user));
+          navigate('/profile');
+        }
       })
       .catch((error) => {
         setError(error.message);
