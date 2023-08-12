@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DoctorCard from './DoctorCard';
 import PatientCard from './PatientCard';
+import { removeDoctor } from '../features/users/DoctorsSlice';
 
 function DashboardAdmin() {
   const [activeTab, setActiveTab] = useState('doctors');
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
   const doctors = useSelector((state) => state.doctors.value);
   const patients = useSelector((state) => state.patients.value);
 
   console.log(doctors);
   console.log(patients);
+
+  function onDeleteDoctor(id) {
+    dispatch(removeDoctor(id));
+  }
 
   return (
     <div>
@@ -42,7 +48,11 @@ function DashboardAdmin() {
         {activeTab === 'doctors' && (
           <div className='doctor-cards'>
             {doctors.map((doctor) => (
-              <DoctorCard key={doctor.id} doctor={doctor} />
+              <DoctorCard
+                key={doctor.id}
+                doctor={doctor}
+                onDeleteDoctor={onDeleteDoctor}
+              />
             ))}
           </div>
         )}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addDoctor } from '../features/users/DoctorsSlice';
 
 function CreateNewUserForm() {
   const [userInfo, setUserInfo] = useState({
@@ -12,6 +13,7 @@ function CreateNewUserForm() {
     specialization: '',
   });
   const [errorsList, setErrorsList] = useState(null);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.value);
 
@@ -41,7 +43,12 @@ function CreateNewUserForm() {
       .then((r) => r.json())
       .then((user) => {
         if (!user.errors) {
-          navigate('/profile');
+          if (user.type === 'Doctor') {
+            dispatch(addDoctor(user));
+            navigate('/dashboardAdmin');
+          } else {
+            navigate('/dashboardAdmin');
+          }
         } else {
           setUserInfo({
             name: '',

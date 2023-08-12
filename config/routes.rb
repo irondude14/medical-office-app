@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :patients
   resources :users, only: %i[show update]
   resources :admins, only: %i[index create destroy]
+  resources :doctors, only: %i[destroy]
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

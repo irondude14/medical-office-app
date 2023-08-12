@@ -8,6 +8,8 @@ function PatientCard({ patient }) {
       <p>Phone: {patient.phone}</p>
       <p>Address: {patient.address}</p>
       <p>Insurance: {patient.insurance}</p>
+      <button>Update Info</button>
+      <button>Remove</button>
     </div>
   );
 }
