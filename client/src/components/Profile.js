@@ -6,8 +6,6 @@ function Profile() {
   const user = useSelector((state) => state.user.value);
   const navigate = useNavigate();
 
-  // console.log(user);
-
   useEffect(() => {
     if (!user) {
       navigate('/login');
@@ -23,7 +21,7 @@ function Profile() {
         <p>Phone: {user.phone}</p>
         <p>Position: {user.type}</p>
         <button>
-          <Link to={`/userInfoUpdateForm`}>Update Info</Link>
+          <Link to={`/user-edit`}>Update Info</Link>
         </button>
       </div>
     );

@@ -9,6 +9,8 @@ import CreateNewUserForm from './components/CreateNewUserForm';
 import CreateNewPatientForm from './components/CreateNewPatientForm';
 import DashboardAdmin from './components/DashboardAdmin';
 import DashboardDoctor from './components/DashboardDoctor';
+import DoctorInfoUpdateForm from './components/DoctorInfoUpdateForm';
+import PatientInfoUpdateForm from './components/PatientInfoUpdateForm';
 
 function App() {
   return (
@@ -19,13 +21,18 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path='logout' element={<Logout />} />
           <Route path='profile' element={<Profile />} />
-          <Route path='userInfoUpdateForm' element={<UserInfoUpdateForm />} />
-          <Route path='createNewUserForm' element={<CreateNewUserForm />} />
-          <Route path='dashboardAdmin' element={<DashboardAdmin />} />
-          <Route path='dashboardDoctor' element={<DashboardDoctor />} />
+          <Route path='user-edit' element={<UserInfoUpdateForm />} />
+          <Route path='new-user' element={<CreateNewUserForm />} />
+          <Route path='admin-dashboard' element={<DashboardAdmin />} />
+          <Route path='doctor-dashboard' element={<DashboardDoctor />} />
+          <Route path='new-patient' element={<CreateNewPatientForm />} />
           <Route
-            path='createNewPatientForm'
-            element={<CreateNewPatientForm />}
+            path='doctor-edit/:doctorID'
+            element={<DoctorInfoUpdateForm />}
+          />
+          <Route
+            path='patient-edit/:patientID'
+            element={<PatientInfoUpdateForm />}
           />
         </Route>
       </Routes>

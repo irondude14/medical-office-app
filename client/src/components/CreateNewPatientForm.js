@@ -44,7 +44,7 @@ function CreateNewPatientForm() {
       .then((patient) => {
         if (!patient.errors) {
           dispatch(addPatient(patient));
-          navigate('/dashboardAdmin');
+          navigate('/admin-dashboard');
         } else {
           setPatientInfo({
             name: '',

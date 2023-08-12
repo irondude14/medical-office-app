@@ -29,10 +29,10 @@ function DashboardAdmin() {
       <div>
         <h3>This will be a dashboard for an Admin.</h3>
         <button>
-          <Link to={'/createNewUserForm'}>Register New User</Link>
+          <Link to={'/new-user'}>Register New User</Link>
         </button>
         <button>
-          <Link to={'/createNewPatientForm'}>Register New Patient</Link>
+          <Link to={'/new-patient'}>Register New Patient</Link>
         </button>
       </div>
       <div>

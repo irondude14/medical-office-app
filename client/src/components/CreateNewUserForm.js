@@ -45,9 +45,9 @@ function CreateNewUserForm() {
         if (!user.errors) {
           if (user.type === 'Doctor') {
             dispatch(addDoctor(user));
-            navigate('/dashboardAdmin');
+            navigate('/admin-dashboard');
           } else {
-            navigate('/dashboardAdmin');
+            navigate('/admin-dashboard');
           }
         } else {
           setUserInfo({

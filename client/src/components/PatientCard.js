@@ -24,7 +24,7 @@ function PatientCard({ patient, onDeletePatient }) {
       <p>Phone: {patient.phone}</p>
       <p>Address: {patient.address}</p>
       <p>Insurance: {patient.insurance}</p>
-      <button>Update Info</button>
+      <button>Edit</button>
       <button onClick={handleDelete}>Remove</button>
     </div>
   );

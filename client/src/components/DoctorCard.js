@@ -23,7 +23,7 @@ function DoctorCard({ doctor, onDeleteDoctor }) {
       <p>Email: {doctor.email}</p>
       <p>Phone: {doctor.phone}</p>
       <p>Specialization: {doctor.specialization}</p>
-      <button>Update Info</button>
+      <button>Edit</button>
       <button onClick={handleDelete}>Remove</button>
     </div>
   );

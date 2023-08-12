@@ -12,13 +12,13 @@ function Navbar() {
           {user && user.type === 'Admin' ? (
             <>
               <button>
-                <Link to='/dashboardAdmin'>Dashboard</Link>
+                <Link to='/admin-dashboard'>Dashboard</Link>
               </button>
             </>
           ) : (
             <>
               <button>
-                <Link to='/dashboardDoctor'>Dashboard</Link>
+                <Link to='/doctor-dashboard'>Dashboard</Link>
               </button>
             </>
           )}
