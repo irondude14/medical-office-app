@@ -9,12 +9,9 @@ import { removePatient } from '../features/users/PatientsSlice';
 function DashboardAdmin() {
   const [activeTab, setActiveTab] = useState('doctors');
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.value);
+  // const user = useSelector((state) => state.user.value);
   const doctors = useSelector((state) => state.doctors.value);
   const patients = useSelector((state) => state.patients.value);
-
-  console.log(doctors);
-  console.log(patients);
 
   function onDeleteDoctor(id) {
     dispatch(removeDoctor(id));

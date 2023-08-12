@@ -25,6 +25,6 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_update_params
-    params.require(:user).permit(:name, :email, :phone)
+    params.require(:doctor).permit(:name, :email, :phone, :specialization)
   end
 end

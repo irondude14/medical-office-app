@@ -20,9 +20,23 @@ const doctorsSlice = createSlice({
     addDoctor: (state, action) => {
       state.value = [...state.value, action.payload];
     },
+    updateDoctor: (state, action) => {
+      const doctorToUpdate = state.value.find(
+        (p) => p.id === action.payload.id
+      );
+      if (doctorToUpdate) {
+        Object.assign(doctorToUpdate, action.payload);
+      }
+      return state;
+    },
   },
 });
 
-export const { setDoctors, removeDoctor, addDoctor } = doctorsSlice.actions;
+export const {
+  setDoctors,
+  removeDoctor,
+  addDoctor,
+  updateDoctor,
+} = doctorsSlice.actions;
 
 export default doctorsSlice.reducer;

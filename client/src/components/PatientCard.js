@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function PatientCard({ patient, onDeletePatient }) {
   function handleDelete() {
@@ -24,7 +25,9 @@ function PatientCard({ patient, onDeletePatient }) {
       <p>Phone: {patient.phone}</p>
       <p>Address: {patient.address}</p>
       <p>Insurance: {patient.insurance}</p>
-      <button>Edit</button>
+      <button>
+        <Link to={`/patient-edit/${patient.id}`}>Edit</Link>
+      </button>
       <button onClick={handleDelete}>Remove</button>
     </div>
   );
