@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import DoctorCard from './DoctorCard';
 import PatientCard from './PatientCard';
 import { removeDoctor } from '../features/users/DoctorsSlice';
+import { removePatient } from '../features/users/PatientsSlice';
 
 function DashboardAdmin() {
   const [activeTab, setActiveTab] = useState('doctors');
@@ -17,6 +18,10 @@ function DashboardAdmin() {
 
   function onDeleteDoctor(id) {
     dispatch(removeDoctor(id));
+  }
+
+  function onDeletePatient(id) {
+    dispatch(removePatient(id));
   }
 
   return (
@@ -60,7 +65,11 @@ function DashboardAdmin() {
         {activeTab === 'patients' && (
           <div className='patient-cards'>
             {patients.map((patient) => (
-              <PatientCard key={patient.id} patient={patient} />
+              <PatientCard
+                key={patient.id}
+                patient={patient}
+                onDeletePatient={onDeletePatient}
+              />
             ))}
           </div>
         )}

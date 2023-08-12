@@ -1,6 +1,22 @@
 import React from 'react';
 
-function PatientCard({ patient }) {
+function PatientCard({ patient, onDeletePatient }) {
+  function handleDelete() {
+    fetch(`/patients/${patient.id}`, {
+      method: 'DELETE',
+    })
+      .then((r) => {
+        if (r.ok) {
+          onDeletePatient(patient.id);
+        } else {
+          console.log(r.errors);
+        }
+      })
+      .catch((error) => {
+        console.error('Error deleting patient: ', error);
+      });
+  }
+
   return (
     <div className='card'>
       <h3>Name: {patient.name}</h3>
@@ -9,7 +25,7 @@ function PatientCard({ patient }) {
       <p>Address: {patient.address}</p>
       <p>Insurance: {patient.insurance}</p>
       <button>Update Info</button>
-      <button>Remove</button>
+      <button onClick={handleDelete}>Remove</button>
     </div>
   );
 }

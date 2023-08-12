@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addPatient } from '../features/users/PatientsSlice';
 
 function CreateNewPatientForm() {
   const [patientInfo, setPatientInfo] = useState({
@@ -12,6 +13,7 @@ function CreateNewPatientForm() {
   });
 
   const [errorsList, setErrorsList] = useState(null);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.value);
 
@@ -41,6 +43,7 @@ function CreateNewPatientForm() {
       .then((r) => r.json())
       .then((patient) => {
         if (!patient.errors) {
+          dispatch(addPatient(patient));
           navigate('/dashboardAdmin');
         } else {
           setPatientInfo({
@@ -63,7 +66,7 @@ function CreateNewPatientForm() {
   return (
     <div>
       <form onSubmit={createPatient}>
-        <h3>Create User Account: </h3>
+        <h3>Register New Patient: </h3>
         <label htmlFor='name'>Name:</label>
         <input
           type='text'
