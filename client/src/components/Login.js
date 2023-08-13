@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '../features/users/UsersSlice';
 import { setDoctors } from '../features/users/DoctorsSlice';
 import { setPatients } from '../features/users/PatientsSlice';
+import { setAppointments } from '../features/users/AppointmentsSlice';
 
 function Login() {
   const [credentials, setCredentials] = useState({
@@ -43,6 +44,7 @@ function Login() {
           dispatch(login(data.user));
           dispatch(setDoctors(data.doctors));
           dispatch(setPatients(data.patients));
+          dispatch(setAppointments(data.appointments));
           navigate('/profile');
         } else if (data && data.type === 'Doctor') {
           dispatch(login(data));
