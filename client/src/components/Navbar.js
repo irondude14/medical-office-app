@@ -9,24 +9,24 @@ function Navbar() {
     <div>
       <nav>
         <ul>
-          {user && user.type === 'Admin' ? (
-            <>
-              <button>
-                <Link to='/admin-dashboard'>Dashboard</Link>
-              </button>
-            </>
-          ) : (
-            <>
-              <button>
-                <Link to='/doctor-dashboard'>Dashboard</Link>
-              </button>
-            </>
-          )}
           {user ? (
             <>
               <button>
                 <Link to='/profile'>Profile</Link>
               </button>
+              {user && user.type === 'Admin' ? (
+                <>
+                  <button>
+                    <Link to='/admin-dashboard'>Dashboard</Link>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button>
+                    <Link to='/doctor-dashboard'>Dashboard</Link>
+                  </button>
+                </>
+              )}
               <button>
                 <Link to='/logout'>Logout</Link>
               </button>

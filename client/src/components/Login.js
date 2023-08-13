@@ -44,8 +44,8 @@ function Login() {
           dispatch(setDoctors(data.doctors));
           dispatch(setPatients(data.patients));
           navigate('/profile');
-        } else if (data.user && data.user.type === 'Doctor') {
-          dispatch(login(data.user));
+        } else if (data && data.type === 'Doctor') {
+          dispatch(login(data));
           navigate('/profile');
         }
       })
