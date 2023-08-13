@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DoctorCard from './DoctorCard';
 import PatientCard from './PatientCard';
 import { removeDoctor } from '../features/users/DoctorsSlice';
@@ -9,7 +9,8 @@ import { removePatient } from '../features/users/PatientsSlice';
 function DashboardAdmin() {
   const [activeTab, setActiveTab] = useState('doctors');
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user.value);
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.value);
   const doctors = useSelector((state) => state.doctors.value);
   const patients = useSelector((state) => state.patients.value);
 
@@ -21,6 +22,12 @@ function DashboardAdmin() {
     dispatch(removePatient(id));
   }
 
+  useEffect(() => {
+    if (!user || user.type !== 'Admin') {
+      navigate('/profile');
+    }
+  }, [user, navigate]);
+
   return (
     <div>
       <div>
@@ -30,6 +37,9 @@ function DashboardAdmin() {
         </button>
         <button>
           <Link to={'/new-patient'}>Register New Patient</Link>
+        </button>
+        <button>
+          <Link to={'/new-appointment'}>New Appointment</Link>
         </button>
       </div>
       <div>

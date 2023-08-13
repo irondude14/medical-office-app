@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       if user.type == 'Admin'
         doctors = User.where(type: 'Doctor')
         patients = Patient.all
+        appointments = Appointment.all
 
         session[:user_id] = user.id
         render json: {
@@ -22,6 +23,10 @@ class SessionsController < ApplicationController
                  patients:
                    ActiveModelSerializers::SerializableResource.new(
                      patients,
+                   ).as_json,
+                 appointments:
+                   ActiveModelSerializers::SerializableResource.new(
+                     appointments,
                    ).as_json,
                }
       else

@@ -12,8 +12,8 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    appointment = Appointment.create(appointment_params)
-    if appointment.valid?
+    appointment = Appointment.new(appointment_params)
+    if appointment.save
       render json: appointment, status: :created
     else
       render json: {
@@ -58,6 +58,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_update_params
-    params.require(:appointment).permit(:user_id, :date_time, :reason)
+    params.require(:appointment).permit(:date_time, :reason)
   end
 end
