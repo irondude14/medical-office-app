@@ -12,6 +12,7 @@ import DashboardDoctor from './components/DashboardDoctor';
 import DoctorInfoUpdateForm from './components/DoctorInfoUpdateForm';
 import PatientInfoUpdateForm from './components/PatientInfoUpdateForm';
 import CreateNewAppointmentForm from './components/CreateNewAppointmentForm';
+import AppointmentUpdateForm from './components/AppointmentUpdateForm';
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
           <Route
             path='new-appointment'
             element={<CreateNewAppointmentForm />}
+          />
+          <Route
+            path='appointment-edit/:appointmentID'
+            element={<AppointmentUpdateForm />}
           />
         </Route>
       </Routes>
