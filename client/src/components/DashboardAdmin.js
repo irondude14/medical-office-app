@@ -6,6 +6,7 @@ import PatientCard from './PatientCard';
 import AppointmentCard from './AppointmentCard';
 import { removeDoctor } from '../features/users/DoctorsSlice';
 import { removePatient } from '../features/users/PatientsSlice';
+import { removeAppointment } from '../features/users/AppointmentsSlice';
 
 function DashboardAdmin() {
   const [activeTab, setActiveTab] = useState('doctors');
@@ -22,6 +23,10 @@ function DashboardAdmin() {
 
   function onDeletePatient(id) {
     dispatch(removePatient(id));
+  }
+
+  function onDeleteAppointment(id) {
+    dispatch(removeAppointment(id));
   }
 
   useEffect(() => {
@@ -96,7 +101,7 @@ function DashboardAdmin() {
               <AppointmentCard
                 key={appointment.id}
                 appointment={appointment}
-                // onDeleteAppointment={onDeleteAppointment}
+                onDeleteAppointment={onDeleteAppointment}
               />
             ))}
           </div>
