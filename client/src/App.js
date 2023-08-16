@@ -13,6 +13,7 @@ import DoctorInfoUpdateForm from './components/DoctorInfoUpdateForm';
 import PatientInfoUpdateForm from './components/PatientInfoUpdateForm';
 import CreateNewAppointmentForm from './components/CreateNewAppointmentForm';
 import AppointmentUpdateForm from './components/AppointmentUpdateForm';
+import TestResultUpdateForm from './components/TestResultUpdateForm';
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
           <Route
             path='appointment-edit/:appointmentID'
             element={<AppointmentUpdateForm />}
+          />
+          <Route
+            path='test-result-edit/:testResultID'
+            element={<TestResultUpdateForm />}
           />
         </Route>
       </Routes>
