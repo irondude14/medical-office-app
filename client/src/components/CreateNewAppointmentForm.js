@@ -61,7 +61,7 @@ function CreateNewAppointmentForm() {
       })
       .catch((error) => console.log('Error: ', error.message));
   }
-  console.log(appointment);
+
   return (
     <form onSubmit={handleSubmit}>
       <h3>New Appointment</h3>

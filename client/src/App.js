@@ -14,6 +14,7 @@ import PatientInfoUpdateForm from './components/PatientInfoUpdateForm';
 import CreateNewAppointmentForm from './components/CreateNewAppointmentForm';
 import AppointmentUpdateForm from './components/AppointmentUpdateForm';
 import TestResultUpdateForm from './components/TestResultUpdateForm';
+import CreateNewTest from './components/CreateNewTest';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             path='test-result-edit/:testResultID'
             element={<TestResultUpdateForm />}
           />
+          <Route path='new-test/:patientID' element={<CreateNewTest />} />
         </Route>
       </Routes>
     </div>

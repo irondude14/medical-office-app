@@ -8,6 +8,12 @@ function DashboardDoctor() {
   const user = useSelector((state) => state.user.value);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!user || user.type !== 'Doctor') {
+      navigate('/profile');
+    }
+  }, [user, navigate]);
+
   const patientList =
     user.patients &&
     user.patients.map((patient) => (
@@ -68,7 +74,7 @@ function DashboardDoctor() {
             )}
             <br />
             <button>
-              <Link to='new-test-form'>New Test</Link>
+              <Link to={`/new-test/${patient.id}`}>New Test</Link>
             </button>
           </>
         ) : null}
