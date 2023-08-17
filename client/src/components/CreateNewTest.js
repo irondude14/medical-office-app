@@ -53,8 +53,6 @@ function CreateNewTest() {
       .catch((error) => console.log('Error: ', error.message));
   }
 
-  console.log(user);
-
   return (
     <form onSubmit={handleSubmit}>
       <h3>New Test for {patient.name}</h3>
