@@ -57,29 +57,42 @@ function Login() {
   }
 
   return (
-    <form className='form'>
-      <h3>Log In:</h3>
-      {error ? <p className='error-list'>{error}</p> : null}
-      <label htmlFor='email'>Email:</label>
-      <input
-        type='text'
-        value={credentials.email}
-        name='email'
-        onChange={handleCredentials}
-      />
-      <br />
-      <label htmlFor='password'>Password:</label>
-      <input
-        type='password'
-        value={credentials.password}
-        name='password'
-        onChange={handleCredentials}
-      />
-      <br />
-      <button id='submitBtn' type='submit' onClick={handleLogin}>
-        Log In
-      </button>
-    </form>
+    <div className='wrapper'>
+      <form className='login-form'>
+        <h1>Login:</h1>
+        {error ? <p className='error-list'>{error}</p> : null}
+        <div class='input-box'>
+          {/* <label htmlFor='email'>Email:</label> */}
+          <input
+            type='text'
+            placeholder='Email...'
+            value={credentials.email}
+            name='email'
+            onChange={handleCredentials}
+          />
+          <box-icon name='envelope' type='solid'></box-icon>
+        </div>
+        <div className='input-box'>
+          {/* <label htmlFor='password'>Password:</label> */}
+          <input
+            type='password'
+            placeholder='Password...'
+            value={credentials.password}
+            name='password'
+            onChange={handleCredentials}
+          />
+          <box-icon name='lock-alt' type='solid'></box-icon>
+        </div>
+        <button
+          id='submitBtn'
+          className='btn'
+          type='submit'
+          onClick={handleLogin}
+        >
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
 

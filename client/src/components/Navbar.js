@@ -1,47 +1,71 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import 'boxicons';
 
 function Navbar() {
   const user = useSelector((state) => state.user.value);
 
   return (
-    <div>
-      <nav>
-        <ul>
+    <>
+      <header class='header'>
+        <p class='logo'>Logo</p>
+        <ul class='navbar'>
           {user ? (
             <>
-              <button>
-                <Link to='/profile'>Profile</Link>
-              </button>
+              <li>
+                <Link to='/profile'>
+                  <box-icon
+                    type='solid'
+                    name='user-account'
+                    size='md'
+                  ></box-icon>
+                </Link>
+              </li>
               {user && user.type === 'Admin' ? (
                 <>
-                  <button>
-                    <Link to='/admin-dashboard'>Dashboard</Link>
-                  </button>
+                  <li>
+                    <Link to='/admin-dashboard'>
+                      <box-icon
+                        name='dashboard'
+                        type='solid'
+                        size='md'
+                      ></box-icon>
+                    </Link>
+                  </li>
                 </>
               ) : (
                 <>
-                  <button>
-                    <Link to='/doctor-dashboard'>Dashboard</Link>
-                  </button>
+                  <li>
+                    <Link to='/doctor-dashboard'>
+                      <box-icon
+                        name='dashboard'
+                        type='solid'
+                        size='md'
+                      ></box-icon>
+                    </Link>
+                  </li>
                 </>
               )}
-              <button>
-                <Link to='/logout'>Logout</Link>
-              </button>
+              <li>
+                <Link to='/logout'>
+                  <box-icon name='log-out' size='md'></box-icon>
+                </Link>
+              </li>
             </>
           ) : (
             <>
-              <button>
-                <Link to='/login'>Login</Link>
-              </button>
+              <li>
+                <Link to='/login'>
+                  <box-icon name='log-in' size='md'></box-icon>
+                </Link>
+              </li>
             </>
           )}
         </ul>
-      </nav>
+      </header>
       <Outlet />
-    </div>
+    </>
   );
 }
 
