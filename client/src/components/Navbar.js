@@ -8,13 +8,13 @@ function Navbar() {
 
   return (
     <>
-      <header class='header'>
-        <p class='logo'>Logo</p>
-        <ul class='navbar'>
+      <header className='header'>
+        <p className='logo'>Logo</p>
+        <ul className='navbar'>
           {user ? (
             <>
               <li>
-                <Link to='/profile'>
+                <Link to='/profile' data-label='Profile'>
                   <box-icon
                     type='solid'
                     name='user-account'
@@ -25,7 +25,7 @@ function Navbar() {
               {user && user.type === 'Admin' ? (
                 <>
                   <li>
-                    <Link to='/admin-dashboard'>
+                    <Link to='/admin-dashboard' data-label='Dashboard'>
                       <box-icon
                         name='dashboard'
                         type='solid'
@@ -37,7 +37,7 @@ function Navbar() {
               ) : (
                 <>
                   <li>
-                    <Link to='/doctor-dashboard'>
+                    <Link to='/doctor-dashboard' data-label='Dashboard'>
                       <box-icon
                         name='dashboard'
                         type='solid'
@@ -48,7 +48,7 @@ function Navbar() {
                 </>
               )}
               <li>
-                <Link to='/logout'>
+                <Link to='/logout' data-label='Logout'>
                   <box-icon name='log-out' size='md'></box-icon>
                 </Link>
               </li>
@@ -56,7 +56,7 @@ function Navbar() {
           ) : (
             <>
               <li>
-                <Link to='/login'>
+                <Link to='/login' data-label='Login'>
                   <box-icon name='log-in' size='md'></box-icon>
                 </Link>
               </li>

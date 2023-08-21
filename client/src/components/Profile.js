@@ -14,14 +14,14 @@ function Profile() {
 
   if (user) {
     return (
-      <div>
+      <div className='wrapper-profile'>
         <h1>Profile</h1>
         <p>Name: {user.name}</p>
         <p>Email: {user.email}</p>
         <p>Phone: {user.phone}</p>
         <p>Position: {user.type}</p>
-        <button>
-          <Link to={`/user-edit`}>Update Info</Link>
+        <button className='btn'>
+          <Link to={`/user-edit`}>UPDATE</Link>
         </button>
       </div>
     );

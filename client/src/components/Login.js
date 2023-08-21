@@ -57,12 +57,11 @@ function Login() {
   }
 
   return (
-    <div className='wrapper'>
+    <div className='wrapper-login'>
       <form className='login-form'>
-        <h1>Login:</h1>
+        <h1>Login</h1>
         {error ? <p className='error-list'>{error}</p> : null}
         <div class='input-box'>
-          {/* <label htmlFor='email'>Email:</label> */}
           <input
             type='text'
             placeholder='Email...'
@@ -73,7 +72,6 @@ function Login() {
           <box-icon name='envelope' type='solid'></box-icon>
         </div>
         <div className='input-box'>
-          {/* <label htmlFor='password'>Password:</label> */}
           <input
             type='password'
             placeholder='Password...'
@@ -89,7 +87,7 @@ function Login() {
           type='submit'
           onClick={handleLogin}
         >
-          Login
+          LOGIN
         </button>
       </form>
     </div>

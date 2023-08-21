@@ -34,11 +34,17 @@ body {
   left: 0;
   width: 100%;
   padding: 20px 100px;
-  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+}
+
+.navbar {
+  display: flex;
 }
 
 .logo {
@@ -61,22 +67,23 @@ body {
   margin-left: 40px;
 }
 
-/* .navbar a::before {
-  content: '';
+.navbar a::before {
+  content: attr(data-label);
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #fff;
-  transition: 0.3s;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s;
 }
 
 .navbar a:hover::before {
-  width: 100%;
-} */
+  opacity: 1;
+}
 
-.wrapper {
+.wrapper-login {
   width: 420px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -87,12 +94,19 @@ body {
   padding: 30px 40px;
 }
 
-.wrapper h1 {
+.wrapper-login h1 {
   font-size: 36px;
   text-align: center;
 }
 
-.wrapper .input-box {
+.wrapper-login p {
+  color: red;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.wrapper-login .input-box {
   position: relative;
   width: 100%;
   height: 50px;
@@ -123,7 +137,7 @@ body {
   transform: translateY(-50%);
 }
 
-.wrapper .btn {
+.wrapper-login .btn {
   width: 100%;
   height: 45px;
   background: #fff;
@@ -135,8 +149,87 @@ body {
   font-size: 16px;
   color: #333;
   font-weight: 600;
+  overflow: hidden;
+  transition: color 0.4s;
+  position: relative;
 }
 
 .btn {
   margin-bottom: 20px;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* The fill color */
+  transition: width 0.4s ease;
+}
+
+.btn:active::after {
+  width: 100%;
+}
+
+.btn:active {
+  color: #fff;
+}
+
+.wrapper-profile {
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.wrapper-profile h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.wrapper-profile p {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wrapper-profile .btn {
+  width: 50%;
+  height: 35px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 35px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+
+  margin: 15px auto auto;
+  display: block;
+
+  overflow: hidden;
+  transition: color 0.4s;
+  position: relative;
+}
+
+.wrapper-profile a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.wrapper-profile ul li {
+  list-style-type: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: red;
+  margin-bottom: 5px;
 }

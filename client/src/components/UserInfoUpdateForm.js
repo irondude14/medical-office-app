@@ -57,38 +57,43 @@ function UserInfoUpdate() {
   }
 
   return (
-    <form onSubmit={updateUser}>
-      <h3>Update Account Info: </h3>
-      <label htmlFor='name'>Name:</label>
-      <input
-        type='text'
-        name='name'
-        value={updateInfo.name || ''}
-        required
-        onChange={handleUserInfo}
-      />
-      <br />
-      <label htmlFor='email'>Email:</label>
-      <input
-        type='text'
-        name='email'
-        value={updateInfo.email || ''}
-        required
-        onChange={handleUserInfo}
-      />
-      <br />
-      <label htmlFor='phone'>Phone:</label>
-      <input
-        type='text'
-        name='phone'
-        value={updateInfo.phone || ''}
-        required
-        onChange={handleUserInfo}
-      />
-      <br />
-      <input type='submit' value='Update' id='submitBtn' />
-      {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
-    </form>
+    <div className='wrapper-profile'>
+      <form onSubmit={updateUser}>
+        <h1>Update Your Info</h1>
+        {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
+        <div className='input-box'>
+          <input
+            type='text'
+            name='name'
+            placeholder='Name'
+            value={updateInfo.name || ''}
+            required
+            onChange={handleUserInfo}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='email'
+            placeholder='Email'
+            value={updateInfo.email || ''}
+            required
+            onChange={handleUserInfo}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='phone'
+            placeholder='Phone'
+            value={updateInfo.phone || ''}
+            required
+            onChange={handleUserInfo}
+          />
+        </div>
+        <input type='submit' value='UPDATE' id='submitBtn' className='btn' />
+      </form>
+    </div>
   );
 }
 
