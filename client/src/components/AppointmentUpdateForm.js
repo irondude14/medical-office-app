@@ -93,24 +93,24 @@ function AppointmentUpdateForm() {
   })}`;
 
   return (
-    <form onSubmit={updateAppointmentInfo}>
-      <h3>Update Appointment</h3>
-      <label>Reason: </label>
-      <input
-        type='text'
-        name='reason'
-        value={updateInfo.reason}
-        placeholder='Reason for appointment'
-        onChange={handleAppointmentInfo}
-      />
-      <br />
-      <label>Choose Date & Time: </label>
-      <Datetime value={formattedDate} onChange={handleDateChange} />
-      <input type='submit' value='Edit' id='submitBtn' />
-      <div>
+    <div className='wrapper-general'>
+      <form onSubmit={updateAppointmentInfo}>
+        <h1>Update Appointment</h1>
         {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
-      </div>
-    </form>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='reason'
+            value={updateInfo.reason}
+            placeholder='Reason for appointment'
+            onChange={handleAppointmentInfo}
+          />
+        </div>
+        <h3>Choose Date & Time: </h3>
+        <Datetime value={formattedDate} onChange={handleDateChange} />
+        <input type='submit' value='Edit' id='submitBtn' className='btn' />
+      </form>
+    </div>
   );
 }
 

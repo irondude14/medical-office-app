@@ -68,52 +68,52 @@ function DoctorInfoUpdateForm() {
   }
 
   return (
-    <div>
+    <div className='wrapper-general'>
       <form onSubmit={updateDoctorInfo}>
-        <h3>Edit Doctor's Info: </h3>
-        <label htmlFor='name'>Name:</label>
-        <input
-          type='text'
-          name='name'
-          value={updateInfo.name}
-          required
-          onChange={handleDoctorInfo}
-        />
-        <br />
-        <label htmlFor='email'>Email:</label>
-        <input
-          type='text'
-          name='email'
-          value={updateInfo.email}
-          required
-          onChange={handleDoctorInfo}
-        />
-        <br />
-        <label htmlFor='specialization'>
-          Specialization:
+        <h1>Edit Doctor</h1>
+        {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
+        <div className='input-box'>
+          <input
+            type='text'
+            name='name'
+            placeholder='Name'
+            value={updateInfo.name}
+            required
+            onChange={handleDoctorInfo}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='email'
+            placeholder='Email'
+            value={updateInfo.email}
+            required
+            onChange={handleDoctorInfo}
+          />
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='specialization'
+            placeholder='Specialization'
             value={updateInfo.specialization}
             required
             onChange={handleDoctorInfo}
           />
-        </label>
-        <br />
-        <label htmlFor='phone'>
-          Phone #:
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='phone'
+            placeholder='Phone #'
             value={updateInfo.phone}
             required
             onChange={handleDoctorInfo}
           />
-        </label>
-        <br />
-        <input type='submit' value='Edit' id='submitBtn' />
+        </div>
+        <input type='submit' value='Edit' id='submitBtn' className='btn' />
       </form>
-      {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
     </div>
   );
 }

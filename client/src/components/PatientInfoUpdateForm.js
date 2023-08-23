@@ -68,63 +68,62 @@ function PatientInfoUpdateForm() {
   }
 
   return (
-    <div>
+    <div className='wrapper-general'>
       <form onSubmit={updatePatientInfo}>
-        <h3>Edit Patient's Info: </h3>
-        <label htmlFor='name'>Name:</label>
-        <input
-          type='text'
-          name='name'
-          value={updateInfo.name}
-          required
-          onChange={handlePatientInfo}
-        />
-        <br />
-        <label htmlFor='email'>Email:</label>
-        <input
-          type='text'
-          name='email'
-          value={updateInfo.email}
-          required
-          onChange={handlePatientInfo}
-        />
-        <br />
-        <label htmlFor='address'>
-          Address:
+        <h1>Edit Patient</h1>
+        {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
+        <div className='input-box'>
+          <input
+            type='text'
+            name='name'
+            placeholder='Name'
+            value={updateInfo.name}
+            required
+            onChange={handlePatientInfo}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='email'
+            placeholder='Email'
+            value={updateInfo.email}
+            required
+            onChange={handlePatientInfo}
+          />
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='address'
+            placeholder='Address'
             value={updateInfo.address}
             required
             onChange={handlePatientInfo}
           />
-        </label>
-        <br />
-        <label htmlFor='phone'>
-          Phone #:
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='phone'
+            placeholder='Phone #'
             value={updateInfo.phone}
             required
             onChange={handlePatientInfo}
           />
-        </label>
-        <br />
-        <label htmlFor='insurance'>
-          Insurance:
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='insurance'
+            placeholder='Name of the Insurance'
             value={updateInfo.insurance}
             required
             onChange={handlePatientInfo}
           />
-        </label>
-        <br />
-        <input type='submit' value='Edit' id='submitBtn' />
+        </div>
+        <input type='submit' value='Edit' id='submitBtn' className='btn' />
       </form>
-      {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
     </div>
   );
 }

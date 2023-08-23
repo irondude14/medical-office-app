@@ -262,7 +262,7 @@ option {
 }
 
 select:last-of-type {
-  margin-right: 0; /* removes the margin from the second (or last) select element */
+  margin-right: 0;
 }
 
 .rdt .form-control {
