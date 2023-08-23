@@ -53,22 +53,22 @@ function TestResultUpdateForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Updating Results for: {testResult.test_name}</h3>
-      <label>Result: </label>
-      <input
-        type='text'
-        name='result'
-        value={updateTestInfo.result}
-        placeholder='Result of the test'
-        onChange={handleInputChange}
-      />
-      <br />
-      <input type='submit' value='Update' id='submitBtn' />
-      <div>
+    <div className='wrapper-general'>
+      <form onSubmit={handleSubmit}>
+        <h1>Updating Results for: {testResult.test_name}</h1>
         {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
-      </div>
-    </form>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='result'
+            value={updateTestInfo.result}
+            placeholder='Result of the test'
+            onChange={handleInputChange}
+          />
+        </div>
+        <input type='submit' value='Update' id='submitBtn' className='btn' />
+      </form>
+    </div>
   );
 }
 

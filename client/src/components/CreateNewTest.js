@@ -54,31 +54,31 @@ function CreateNewTest() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>New Test for {patient.name}</h3>
-      <label>Test Name: </label>
-      <input
-        type='text'
-        name='test_name'
-        value={testInfo.test_name}
-        placeholder='Name of the Test'
-        onChange={handleInputChange}
-      />
-      <br />
-      <label>Result: </label>
-      <input
-        type='text'
-        name='result'
-        value={testInfo.result}
-        placeholder='Result of the test'
-        onChange={handleInputChange}
-      />
-      <br />
-      <input type='submit' value='Create' id='submitBtn' />
-      <div>
+    <div className='wrapper-general'>
+      <form onSubmit={handleSubmit}>
+        <h1>New Test for {patient.name}</h1>
         {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
-      </div>
-    </form>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='test_name'
+            value={testInfo.test_name}
+            placeholder='Name of the Test'
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='result'
+            value={testInfo.result}
+            placeholder='Result of the test'
+            onChange={handleInputChange}
+          />
+        </div>
+        <input type='submit' value='Create' id='submitBtn' className='btn' />
+      </form>
+    </div>
   );
 }
 
