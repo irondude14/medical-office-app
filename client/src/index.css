@@ -177,7 +177,7 @@ body {
   color: #fff;
 }
 
-.wrapper-profile {
+.wrapper-general {
   width: 420px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -188,20 +188,20 @@ body {
   padding: 30px 40px;
 }
 
-.wrapper-profile h1 {
+.wrapper-general h1 {
   font-size: 36px;
   text-align: center;
 }
 
-.wrapper-profile p {
+.wrapper-general p {
   color: white;
   font-size: 16px;
   font-weight: 600;
 }
 
-.wrapper-profile .btn {
-  width: 50%;
-  height: 35px;
+.wrapper-general .btn {
+  width: 100%;
+  height: 45px;
   background: #fff;
   border: none;
   outline: none;
@@ -220,16 +220,85 @@ body {
   position: relative;
 }
 
-.wrapper-profile a {
+.wrapper-general a {
   text-decoration: none;
   color: inherit;
 }
 
-.wrapper-profile ul li {
+.wrapper-general ul li {
   list-style-type: none;
   text-align: center;
   font-size: 18px;
   font-weight: 600;
   color: red;
   margin-bottom: 5px;
+}
+
+.wrapper-general .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 35px 10px 20px;
+  height: 50px;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+option {
+  background: #333;
+}
+
+select:last-of-type {
+  margin-right: 0; /* removes the margin from the second (or last) select element */
+}
+
+.rdt .form-control {
+  width: 100%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+}
+
+.rdtPicker {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: #333;
+}
+
+.rdtPicker th,
+.rdtPicker td {
+  border: none;
+  color: #333;
+}
+
+.wrapper-general h3 {
+  text-align: center;
+}
+
+.rdtPicker td.rdtActive,
+.rdtPicker td.rdtActive:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+.rdtPicker td:hover {
+  background-color: lightblue;
+  color: black;
 }

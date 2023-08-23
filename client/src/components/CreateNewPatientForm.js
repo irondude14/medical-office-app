@@ -64,63 +64,62 @@ function CreateNewPatientForm() {
   console.log(patientInfo);
 
   return (
-    <div>
+    <div className='wrapper-general'>
       <form onSubmit={createPatient}>
-        <h3>Register New Patient: </h3>
-        <label htmlFor='name'>Name:</label>
-        <input
-          type='text'
-          name='name'
-          value={patientInfo.name}
-          required
-          onChange={handlePatientInfo}
-        />
-        <br />
-        <label htmlFor='email'>Email:</label>
-        <input
-          type='text'
-          name='email'
-          value={patientInfo.email}
-          required
-          onChange={handlePatientInfo}
-        />
-        <br />
-        <label htmlFor='address'>
-          Address:
+        <h1>New Patient</h1>
+        {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
+        <div className='input-box'>
+          <input
+            type='text'
+            name='name'
+            placeholder='Name'
+            value={patientInfo.name}
+            required
+            onChange={handlePatientInfo}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='email'
+            placeholder='Email'
+            value={patientInfo.email}
+            required
+            onChange={handlePatientInfo}
+          />
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='address'
+            placeholder='Address'
             value={patientInfo.address}
             required
             onChange={handlePatientInfo}
           />
-        </label>
-        <br />
-        <label htmlFor='phone'>
-          Phone #:
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='phone'
+            placeholder='Phone #'
             value={patientInfo.phone}
             required
             onChange={handlePatientInfo}
           />
-        </label>
-        <br />
-        <label htmlFor='insurance'>
-          Insurance:
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='insurance'
+            placeholder='Insurance Name'
             value={patientInfo.insurance}
             required
             onChange={handlePatientInfo}
           />
-        </label>
-        <br />
-        <input type='submit' value='Register' id='submitBtn' />
+        </div>
+        <input type='submit' value='Register' id='submitBtn' className='btn' />
       </form>
-      {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
     </div>
   );
 }

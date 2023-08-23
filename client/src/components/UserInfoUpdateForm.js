@@ -57,7 +57,7 @@ function UserInfoUpdate() {
   }
 
   return (
-    <div className='wrapper-profile'>
+    <div className='wrapper-general'>
       <form onSubmit={updateUser}>
         <h1>Update Your Info</h1>
         {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}

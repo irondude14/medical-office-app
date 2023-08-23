@@ -67,40 +67,11 @@ function CreateNewUserForm() {
   }
 
   return (
-    <div>
+    <div className='wrapper-general'>
       <form onSubmit={createUser}>
-        <h3>Create User Account: </h3>
-        <label htmlFor='name'>Name:</label>
-        <input
-          type='text'
-          name='name'
-          value={userInfo.name}
-          required
-          onChange={handleUserInfo}
-        />
-        <br />
-        <label htmlFor='email'>Email:</label>
-        <input
-          type='text'
-          name='email'
-          value={userInfo.email}
-          required
-          onChange={handleUserInfo}
-        />
-        <br />
-        <label htmlFor='password_confirmation'>
-          Password:
-          <input
-            type='password'
-            name='password'
-            value={userInfo.password}
-            required
-            onChange={handleUserInfo}
-          />
-        </label>
-        <br />
-        <label htmlFor='type'>
-          Type of the account:
+        <h1>Create New User</h1>
+        {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
+        <div>
           <select
             type='text'
             name='type'
@@ -112,33 +83,59 @@ function CreateNewUserForm() {
             <option value='Admin'>Admin</option>
             <option value='Doctor'>Doctor</option>
           </select>
-        </label>
-        <br />
-        <label htmlFor='specialization'>
-          Specialization:
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='name'
+            placeholder='Name'
+            value={userInfo.name}
+            required
+            onChange={handleUserInfo}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='text'
+            name='email'
+            placeholder='Email'
+            value={userInfo.email}
+            required
+            onChange={handleUserInfo}
+          />
+        </div>
+        <div className='input-box'>
+          <input
+            type='password'
+            name='password'
+            placeholder='Password'
+            value={userInfo.password}
+            required
+            onChange={handleUserInfo}
+          />
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='specialization'
+            placeholder='Specialization'
             value={userInfo.specialization}
             required
             onChange={handleUserInfo}
           />
-        </label>
-        <br />
-        <label htmlFor='phone'>
-          Phone #:
+        </div>
+        <div className='input-box'>
           <input
             type='text'
             name='phone'
+            placeholder='Phone #'
             value={userInfo.phone}
             required
             onChange={handleUserInfo}
           />
-        </label>
-        <br />
-        <input type='submit' value='Register' id='submitBtn' />
+        </div>
+        <input type='submit' value='Register' id='submitBtn' className='btn' />
       </form>
-      {errorsList ? <ul className='error-list'>{errorsList}</ul> : null}
     </div>
   );
 }

@@ -14,7 +14,7 @@ function Profile() {
 
   if (user) {
     return (
-      <div className='wrapper-profile'>
+      <div className='wrapper-general'>
         <h1>Profile</h1>
         <p>Name: {user.name}</p>
         <p>Email: {user.email}</p>
