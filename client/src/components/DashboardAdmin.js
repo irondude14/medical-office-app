@@ -40,7 +40,6 @@ function DashboardAdmin() {
   return (
     <div>
       <div>
-        <h3>This will be a dashboard for an Admin.</h3>
         <button>
           <Link to={'/new-user'}>Register New User</Link>
         </button>
