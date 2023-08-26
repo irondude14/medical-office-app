@@ -24,10 +24,12 @@ function DoctorCard({ doctor, onDeleteDoctor }) {
       <p>Email: {doctor.email}</p>
       <p>Phone: {doctor.phone}</p>
       <p>Specialization: {doctor.specialization}</p>
-      <button>
-        <Link to={`/doctor-edit/${doctor.id}`}>Edit</Link>
-      </button>
-      <button onClick={handleDelete}>Remove</button>
+      <div className='button-container'>
+        <button>
+          <Link to={`/doctor-edit/${doctor.id}`}>Edit</Link>
+        </button>
+        <button onClick={handleDelete}>Remove</button>
+      </div>
     </div>
   );
 }

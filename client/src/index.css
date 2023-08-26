@@ -327,6 +327,13 @@ select:last-of-type {
   color: inherit;
 }
 
+.wrapper-dashboard ul li {
+  list-style-type: none;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
 .dashboard-header {
   display: flex;
   justify-content: flex-start;
@@ -361,22 +368,22 @@ select:last-of-type {
 }
 
 .tab {
-  display: flex;
+  display: inline-flex;
   justify-content: start;
-  gap: 10px;
-  border-bottom: 2px solid #ccc; /* A border under the tabs to emphasize the tab effect */
+  gap: 5px;
+  border-bottom: 1px solid #ccc;
 }
 
 .tab button {
   background: #eee;
   border: none;
-  height: 30px;
+  height: 25px;
   padding: 5px 10px;
   cursor: pointer;
-  border-top-left-radius: 5px; /* Rounded top left corner */
-  border-top-right-radius: 5px; /* Rounded top right corner */
-  border-bottom: 2px solid #ccc; /* This makes the non-active tabs look like they're "behind" the content */
-  transition: background-color 0.3s, border-color 0.3s; /* Adding border-color to the transition */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 2px solid #ccc;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .tab button.active {
@@ -386,11 +393,67 @@ select:last-of-type {
 }
 
 .tab button:not(.active):hover {
-  background: #ddd; /* Lighten on hover for non-active tabs */
+  background: #ddd;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 20px;
 }
 
 .card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px; /* Spacing between cards */
+  flex-direction: column;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  width: 350px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card .button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 5px 0;
+}
+
+.card button {
+  margin-left: 5px;
+  height: 25px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+
+  overflow: hidden;
+  transition: color 0.4s;
+
+  display: block;
+  transition: color 0.4s;
+  position: relative;
+}
+
+.appointment-card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 10px;
+}
+
+.test-result-card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 10px;
+}
+
+.card h4 {
+  text-align: center;
 }

@@ -38,10 +38,12 @@ function AppointmentCard({ appointment, onDeleteAppointment }) {
       <p>Patient's Name: {appointment.patient.name}</p>
       <p>Date & Time: {formattedDate}</p>
       <p>Reason: {appointment.reason}</p>
-      <button>
-        <Link to={`/appointment-edit/${appointment.id}`}>Edit</Link>
-      </button>
-      <button onClick={handleDelete}>Remove</button>
+      <div className='button-container'>
+        <button>
+          <Link to={`/appointment-edit/${appointment.id}`}>Edit</Link>
+        </button>
+        <button onClick={handleDelete}>Remove</button>
+      </div>
     </div>
   );
 }

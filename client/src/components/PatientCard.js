@@ -25,10 +25,12 @@ function PatientCard({ patient, onDeletePatient }) {
       <p>Phone: {patient.phone}</p>
       <p>Address: {patient.address}</p>
       <p>Insurance: {patient.insurance}</p>
-      <button>
-        <Link to={`/patient-edit/${patient.id}`}>Edit</Link>
-      </button>
-      <button onClick={handleDelete}>Remove</button>
+      <div className='button-container'>
+        <button>
+          <Link to={`/patient-edit/${patient.id}`}>Edit</Link>
+        </button>
+        <button onClick={handleDelete}>Remove</button>
+      </div>
     </div>
   );
 }

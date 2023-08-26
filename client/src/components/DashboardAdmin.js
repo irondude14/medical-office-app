@@ -72,7 +72,7 @@ function DashboardAdmin() {
           </button>
         </div>
         {activeTab === 'doctors' && (
-          <div className='card'>
+          <div className='card-container'>
             {doctors.map((doctor) => (
               <DoctorCard
                 key={doctor.id}
@@ -84,7 +84,7 @@ function DashboardAdmin() {
         )}
 
         {activeTab === 'patients' && (
-          <div className='card'>
+          <div className='card-container'>
             {patients.map((patient) => (
               <PatientCard
                 key={patient.id}
@@ -95,7 +95,7 @@ function DashboardAdmin() {
           </div>
         )}
         {activeTab === 'appointments' && (
-          <div className='card'>
+          <div className='card-container'>
             {appointments.map((appointment) => (
               <AppointmentCard
                 key={appointment.id}
