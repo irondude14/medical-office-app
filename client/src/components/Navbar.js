@@ -15,11 +15,7 @@ function Navbar() {
             <>
               <li>
                 <Link to='/profile' data-label='Profile'>
-                  <box-icon
-                    type='solid'
-                    name='user-account'
-                    size='md'
-                  ></box-icon>
+                  <box-icon name='user' size='md'></box-icon>
                 </Link>
               </li>
               {user && user.type === 'Admin' ? (
@@ -27,7 +23,7 @@ function Navbar() {
                   <li>
                     <Link to='/admin-dashboard' data-label='Dashboard'>
                       <box-icon
-                        name='dashboard'
+                        name='bar-chart-square'
                         type='solid'
                         size='md'
                       ></box-icon>
@@ -39,7 +35,7 @@ function Navbar() {
                   <li>
                     <Link to='/doctor-dashboard' data-label='Dashboard'>
                       <box-icon
-                        name='dashboard'
+                        name='bar-chart-square'
                         type='solid'
                         size='md'
                       ></box-icon>

@@ -61,7 +61,7 @@ function Login() {
       <form className='login-form'>
         <h1>Login</h1>
         {error ? <p className='error-list'>{error}</p> : null}
-        <div class='input-box'>
+        <div className='input-box'>
           <input
             type='text'
             placeholder='Email...'

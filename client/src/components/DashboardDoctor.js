@@ -16,8 +16,8 @@ function DashboardDoctor() {
   const patientList =
     user.patients &&
     user.patients.map((patient) => (
-      <div className='card'>
-        <li key={patient.id}>
+      <div key={patient.id} className='card'>
+        <li>
           <div
             onClick={() => {
               if (selectedPatientId === patient.id) {
@@ -87,10 +87,12 @@ function DashboardDoctor() {
     ));
   return (
     <div className='wrapper-dashboard'>
-      <ul>
-        <h3>Patients:</h3>
-        {patientList}
-      </ul>
+      <div className='card-container'>
+        <ul>
+          <h3>Patients:</h3>
+          {patientList}
+        </ul>
+      </div>
     </div>
   );
 }
