@@ -310,7 +310,7 @@ select:last-of-type {
   transform: translateX(-50%);
 
   width: 100%;
-  max-width: 1200px;
+  max-width: 1250px;
   margin-top: 20px;
   overflow: hidden;
   background: transparent;
@@ -423,7 +423,8 @@ select:last-of-type {
 }
 
 .card button {
-  margin-left: 5px;
+  margin-left: 2px;
+  margin-bottom: 2px;
   height: 25px;
   background: #fff;
   border: none;
@@ -447,11 +448,13 @@ select:last-of-type {
 .appointment-card {
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin-top: 10px;
+  padding: 2px;
 }
 
 .test-result-card {
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin-top: 10px;
+  padding: 2px;
 }
 
 .card h4 {

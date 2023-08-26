@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function DashboardDoctor() {
-  const [flag, setFlag] = useState(false);
   const [selectedPatientId, setSelectedPatientId] = useState(null);
   const user = useSelector((state) => state.user.value);
   const navigate = useNavigate();
@@ -21,8 +20,11 @@ function DashboardDoctor() {
         <li key={patient.id}>
           <div
             onClick={() => {
-              setFlag(!flag);
-              setSelectedPatientId(patient.id);
+              if (selectedPatientId === patient.id) {
+                setSelectedPatientId(null);
+              } else {
+                setSelectedPatientId(patient.id);
+              }
             }}
           >
             <h3>{patient.name}</h3>
@@ -30,7 +32,7 @@ function DashboardDoctor() {
             <p>Email: {patient.email}</p>
           </div>
 
-          {flag ? (
+          {selectedPatientId === patient.id ? (
             <>
               <h4>Upcoming appointments</h4>
               {user.appointments && user.appointments.length > 0 ? (
