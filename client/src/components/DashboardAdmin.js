@@ -38,8 +38,8 @@ function DashboardAdmin() {
   console.log(appointments);
 
   return (
-    <div>
-      <div>
+    <div className='wrapper-dashboard'>
+      <div className='dashboard-header'>
         <button>
           <Link to={'/new-user'}>Register New User</Link>
         </button>
@@ -50,8 +50,8 @@ function DashboardAdmin() {
           <Link to={'/new-appointment'}>New Appointment</Link>
         </button>
       </div>
-      <div>
-        <div className='tabs'>
+      <div className='dashboard-main'>
+        <div className='tab'>
           <button
             onClick={() => setActiveTab('doctors')}
             className={activeTab === 'doctors' ? 'active' : ''}
@@ -72,7 +72,7 @@ function DashboardAdmin() {
           </button>
         </div>
         {activeTab === 'doctors' && (
-          <div className='doctor-cards'>
+          <div className='card'>
             {doctors.map((doctor) => (
               <DoctorCard
                 key={doctor.id}
@@ -84,7 +84,7 @@ function DashboardAdmin() {
         )}
 
         {activeTab === 'patients' && (
-          <div className='patient-cards'>
+          <div className='card'>
             {patients.map((patient) => (
               <PatientCard
                 key={patient.id}
@@ -95,7 +95,7 @@ function DashboardAdmin() {
           </div>
         )}
         {activeTab === 'appointments' && (
-          <div className='appointment-cards'>
+          <div className='card'>
             {appointments.map((appointment) => (
               <AppointmentCard
                 key={appointment.id}

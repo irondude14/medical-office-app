@@ -302,3 +302,95 @@ select:last-of-type {
   background-color: lightblue;
   color: black;
 }
+
+.wrapper-dashboard {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  overflow: hidden;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.wrapper-dashboard a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0px 0px 10px 0px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.dashboard-header button {
+  margin-left: 5px;
+  height: 25px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+
+  overflow: hidden;
+  transition: color 0.4s;
+
+  display: block;
+  transition: color 0.4s;
+  position: relative;
+}
+
+.dashboard-main {
+  padding: 20px;
+}
+
+.tab {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  border-bottom: 2px solid #ccc; /* A border under the tabs to emphasize the tab effect */
+}
+
+.tab button {
+  background: #eee;
+  border: none;
+  height: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-top-left-radius: 5px; /* Rounded top left corner */
+  border-top-right-radius: 5px; /* Rounded top right corner */
+  border-bottom: 2px solid #ccc; /* This makes the non-active tabs look like they're "behind" the content */
+  transition: background-color 0.3s, border-color 0.3s; /* Adding border-color to the transition */
+}
+
+.tab button.active {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab button:not(.active):hover {
+  background: #ddd; /* Lighten on hover for non-active tabs */
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Spacing between cards */
+}
