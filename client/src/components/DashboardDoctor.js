@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import AppointmentList from './AppointmentList';
+import TestResultList from './TestResultList';
 
 function DashboardDoctor() {
   const [selectedPatientId, setSelectedPatientId] = useState(null);
@@ -13,86 +15,54 @@ function DashboardDoctor() {
     }
   }, [user, navigate]);
 
-  const patientList =
-    user.patients &&
-    user.patients.map((patient) => (
-      <div key={patient.id} className='card'>
-        <li>
-          <div
-            onClick={() => {
-              if (selectedPatientId === patient.id) {
-                setSelectedPatientId(null);
-              } else {
-                setSelectedPatientId(patient.id);
-              }
-            }}
-          >
-            <h3>{patient.name}</h3>
-            <p>Phone #: {patient.phone}</p>
-            <p>Email: {patient.email}</p>
-          </div>
-
-          {selectedPatientId === patient.id ? (
-            <>
-              <h4>Upcoming appointments</h4>
-              {user.appointments && user.appointments.length > 0 ? (
-                user.appointments
-                  .filter(
-                    (appointment) =>
-                      appointment.patient_id === selectedPatientId
-                  )
-                  .map((appointment) => {
-                    const appointmentDate = new Date(appointment.date_time);
-                    const formattedDate = appointmentDate.toLocaleDateString();
-                    const formattedTime = appointmentDate.toLocaleTimeString();
-                    return (
-                      <div key={appointment.id} className='appointment-card'>
-                        <p>Appointment Date: {formattedDate}</p>
-                        <p>Appointment Time: {formattedTime}</p>
-                        <p>Reason: {appointment.reason}</p>
-                      </div>
-                    );
-                  })
-              ) : (
-                <p>No upcoming appointments.</p>
-              )}
-              <h4>Test Results</h4>
-              {user.test_results && user.test_results.length > 0 ? (
-                user.test_results
-                  .filter(
-                    (testResult) => testResult.patient_id === selectedPatientId
-                  )
-                  .map((testResult) => (
-                    <div key={testResult.id} className='test-result-card'>
-                      <p>Test Name: {testResult.test_name}</p>
-                      <p>Result: {testResult.result}</p>
-                      <button>
-                        <Link to={`/test-result-edit/${testResult.id}`}>
-                          Edit
-                        </Link>
-                      </button>
-                    </div>
-                  ))
-              ) : (
-                <p>No test results available.</p>
-              )}
-              <br />
-              <button>
-                <Link to={`/new-test/${patient.id}`}>New Test</Link>
-              </button>
-            </>
-          ) : null}
-        </li>
-      </div>
-    ));
   return (
     <div className='wrapper-dashboard'>
-      <div className='card-container'>
-        <ul>
-          <h3>Patients:</h3>
-          {patientList}
-        </ul>
-      </div>
+      <h3>Patients:</h3>
+      <ul className='card-container'>
+        {user.patients &&
+          user.patients.map((patient) => (
+            <li
+              key={patient.id}
+              className={`patient-card ${
+                selectedPatientId === patient.id ? 'active' : ''
+              } ${
+                selectedPatientId && selectedPatientId !== patient.id
+                  ? 'blur'
+                  : ''
+              }`}
+            >
+              <div
+                onClick={() => {
+                  if (selectedPatientId === patient.id) {
+                    setSelectedPatientId(null);
+                  } else {
+                    setSelectedPatientId(patient.id);
+                  }
+                }}
+              >
+                <h3>{patient.name}</h3>
+                <p>Phone #: {patient.phone}</p>
+                <p>Email: {patient.email}</p>
+              </div>
+
+              {selectedPatientId === patient.id && (
+                <div className='patient-details'>
+                  <AppointmentList
+                    patientId={selectedPatientId}
+                    appointments={user.appointments}
+                  />
+                  <TestResultList
+                    patientId={selectedPatientId}
+                    testResults={user.test_results}
+                  />
+                  <button>
+                    <Link to={`/new-test/${patient.id}`}>New Test</Link>
+                  </button>
+                </div>
+              )}
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }
