@@ -20,7 +20,7 @@ function TestResultList({ patientId, testResults }) {
           </div>
         ))
       ) : (
-        <p>No test results available.</p>
+        <p>No tests scheduled.</p>
       )}
     </>
   );

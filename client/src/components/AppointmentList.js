@@ -23,7 +23,7 @@ function AppointmentList({ patientId, appointments }) {
           );
         })
       ) : (
-        <p>No upcoming appointments.</p>
+        <p>No appointments scheduled.</p>
       )}
     </>
   );
