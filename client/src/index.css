@@ -462,6 +462,29 @@ select:last-of-type {
   padding: 2px;
 }
 
+.test-result-card button {
+  margin-left: 2px;
+  margin-bottom: 2px;
+  height: 25px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+
+  overflow: hidden;
+  transition: color 0.4s;
+
+  display: block;
+  transition: color 0.4s;
+  position: relative;
+}
+
 .patient-card {
   display: flex;
   flex-direction: column;
@@ -476,16 +499,4 @@ select:last-of-type {
   position: relative;
   z-index: 0;
   filter: none;
-}
-
-.patient-card.active {
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  position: fixed; /* Use fixed positioning to pull out of normal flow */
-  top: 50%; /* Center vertically in viewport */
-  left: 50%;
-}
-
-.patient-card.blur {
-  filter: blur(5px);
 }

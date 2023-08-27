@@ -14,7 +14,7 @@ function TestResultList({ patientId, testResults }) {
           <div key={testResult.id} className='test-result-card'>
             <p>Test Name: {testResult.test_name}</p>
             <p>Result: {testResult.result}</p>
-            <button>
+            <button className=''>
               <Link to={`/test-result-edit/${testResult.id}`}>Edit</Link>
             </button>
           </div>

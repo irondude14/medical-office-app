@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../features/users/UsersSlice';
 import { setDoctors } from '../features/users/DoctorsSlice';
 import { setPatients } from '../features/users/PatientsSlice';
@@ -24,6 +24,14 @@ function Login() {
       [e.target.name]: e.target.value,
     });
   }
+
+  const user = useSelector((state) => state.user.value);
+
+  useEffect(() => {
+    if (user) {
+      navigate('/profile');
+    }
+  }, [user, navigate]);
 
   function handleLogin(e) {
     e.preventDefault();
