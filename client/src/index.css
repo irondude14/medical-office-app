@@ -427,6 +427,10 @@ select:last-of-type {
   text-align: center;
 }
 
+.card li {
+  list-style-type: none;
+}
+
 .card button {
   margin-left: 2px;
   margin-bottom: 2px;

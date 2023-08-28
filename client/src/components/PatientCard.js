@@ -17,6 +17,7 @@ function PatientCard({ patient, onDeletePatient }) {
         console.error('Error deleting patient: ', error);
       });
   }
+  console.log(patient);
 
   return (
     <div className='card'>
@@ -25,6 +26,12 @@ function PatientCard({ patient, onDeletePatient }) {
       <p>Phone: {patient.phone}</p>
       <p>Address: {patient.address}</p>
       <p>Insurance: {patient.insurance}</p>
+      <h4>Doctors</h4>
+      <p>
+        {patient.users.map((doctor) => {
+          return <li key={doctor.id}>{doctor.name}, MD</li>;
+        })}
+      </p>
       <div className='button-container'>
         <button>
           <Link to={`/patient-edit/${patient.id}`}>Edit</Link>

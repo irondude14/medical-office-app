@@ -35,7 +35,7 @@ function DashboardAdmin() {
     }
   }, [user, navigate]);
 
-  console.log(appointments);
+  console.log(patients);
 
   return (
     <div className='wrapper-dashboard'>
