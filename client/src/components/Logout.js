@@ -8,12 +8,6 @@ const Logout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //   const handleLogout = async () => {
-  //     dispatch(logout());
-  //     await persistor.purge();
-  //   };
-
-  //   return <button onClick={handleLogout}>Logout</button>;
   React.useEffect(() => {
     fetch('/logout', {
       method: 'DELETE',

@@ -1,11 +1,10 @@
 class AppointmentsController < ApplicationController
   load_and_authorize_resource
-  # before_action :set_appointment, only: %i[show update destroy]
 
-  def index
-    appointments = Appointment.all
-    render json: appointments
-  end
+  # def index
+  #   appointments = Appointment.all
+  #   render json: appointments
+  # end
 
   def show
     render json: @appointment
@@ -40,13 +39,6 @@ class AppointmentsController < ApplicationController
   end
 
   private
-
-  # def set_appointment
-  #   @appointment = Appointment.find_by(id: params[:id])
-  #   unless @appointment
-  #     render json: { error: 'Appointment not found' }, status: :not_found
-  #   end
-  # end
 
   def appointment_params
     params.require(:appointment).permit(

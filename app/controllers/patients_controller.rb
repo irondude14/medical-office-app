@@ -1,10 +1,10 @@
 class PatientsController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    patients = Patient.all
-    redner json: patients
-  end
+  # def index
+  #   patients = Patient.all
+  #   redner json: patients
+  # end
 
   def show
     render json: @patient
