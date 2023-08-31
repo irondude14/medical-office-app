@@ -52,7 +52,12 @@ function CreateNewAppointmentForm() {
       .then((app) => {
         if (!app.errors) {
           dispatch(addAppointment(app));
-          dispatch(updatePatient(app));
+          dispatch(
+            updatePatient({
+              id: app.patient_id,
+              newUser: app.user,
+            })
+          );
           navigate('/admin-dashboard');
         } else {
           const currentErrors = app.errors.map((e, index) => (

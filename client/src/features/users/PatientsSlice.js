@@ -25,7 +25,14 @@ const patientsSlice = createSlice({
         (p) => p.id === action.payload.id
       );
       if (patientToUpdate) {
-        Object.assign(patientToUpdate, action.payload);
+        if (action.payload.newUser) {
+          if (!patientToUpdate.users) {
+            patientToUpdate.users = [];
+          }
+          patientToUpdate.users.push(action.payload.newUser);
+        } else {
+          Object.assign(patientToUpdate, action.payload);
+        }
       }
       return state;
     },
