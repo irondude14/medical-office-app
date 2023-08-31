@@ -1,10 +1,6 @@
 class TestResultsController < ApplicationController
   load_and_authorize_resource
 
-  # def show
-  #   render json: @test_result
-  # end
-
   def create
     test_result = TestResult.create(test_result_params)
     if test_result.valid?

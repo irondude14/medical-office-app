@@ -1,11 +1,6 @@
 class AppointmentsController < ApplicationController
   load_and_authorize_resource
 
-  # def index
-  #   appointments = Appointment.all
-  #   render json: appointments
-  # end
-
   def show
     render json: @appointment
   end

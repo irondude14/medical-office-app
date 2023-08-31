@@ -4,6 +4,7 @@ import 'react-datetime/css/react-datetime.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addAppointment } from '../features/users/AppointmentsSlice';
+import { updatePatient } from '../features/users/PatientsSlice';
 
 function CreateNewAppointmentForm() {
   const [appointment, setAppointment] = useState({
@@ -51,6 +52,7 @@ function CreateNewAppointmentForm() {
       .then((app) => {
         if (!app.errors) {
           dispatch(addAppointment(app));
+          dispatch(updatePatient(app));
           navigate('/admin-dashboard');
         } else {
           const currentErrors = app.errors.map((e, index) => (
