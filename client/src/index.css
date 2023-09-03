@@ -276,13 +276,13 @@ select:last-of-type {
   width: 100%;
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  background-color: #333;
+  background-color: #fff;
 }
 
 .rdtPicker th,
 .rdtPicker td {
   border: none;
-  color: #333;
+  color: #000;
 }
 
 .wrapper-general h3 {
