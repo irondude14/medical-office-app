@@ -14,9 +14,9 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default 
-# adapter: postgresql
-  adapter: sqlite3
+default: &default
+  adapter: postgresql
+  # adapter: sqlite3
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: medical_office_app.sqlite3
+  database: medical_office
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -53,7 +53,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: medical_office_app.sqlite3
+  database: medical_office
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

@@ -3,9 +3,9 @@ class CreateAppointments < ActiveRecord::Migration[6.1]
     create_table :appointments do |t|
       t.datetime :date_time
       t.string :reason
-      t.integer :patient_id, null: false
-      t.integer :user_id, null: false
 
+      t.references :patient, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end
