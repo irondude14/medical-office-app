@@ -29,11 +29,50 @@ const patientsSlice = createSlice({
           if (!patientToUpdate.users) {
             patientToUpdate.users = [];
           }
-          patientToUpdate.users.push(action.payload.newUser);
+          const isUserAlreadyPresent = patientToUpdate.users.find(
+            (user) => user.id === action.payload.newUser.id
+          );
+          if (!isUserAlreadyPresent) {
+            patientToUpdate.users.push(action.payload.newUser);
+          }
         } else {
           Object.assign(patientToUpdate, action.payload);
         }
+
+        if (action.payload.newAppointment) {
+          if (!patientToUpdate.appointments) {
+            patientToUpdate.appointments = [];
+          }
+          patientToUpdate.appointments.push(action.payload.newAppointment);
+        }
       }
+      return state;
+    },
+    removeAppointmentFromPatient: (state, action) => {
+      const patientToUpdate = state.value.find(
+        (p) => p.id === action.payload.patient_id
+      );
+
+      if (patientToUpdate) {
+        const userOfAppointment = patientToUpdate.users.find(
+          (u) => u.id === action.payload.user_id
+        );
+
+        if (userOfAppointment) {
+          const otherAppointments = patientToUpdate.appointments.filter(
+            (a) => a.user_id === action.payload.user_id
+          );
+          if (otherAppointments.length === 1) {
+            patientToUpdate.users = patientToUpdate.users.filter(
+              (u) => u.id !== action.payload.user_id
+            );
+          }
+        }
+        patientToUpdate.appointments = patientToUpdate.appointments.filter(
+          (a) => a.id !== action.payload.id
+        );
+      }
+
       return state;
     },
   },
@@ -44,6 +83,7 @@ export const {
   addPatient,
   removePatient,
   updatePatient,
+  removeAppointmentFromPatient,
 } = patientsSlice.actions;
 
 export default patientsSlice.reducer;

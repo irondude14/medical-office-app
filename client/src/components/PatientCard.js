@@ -17,7 +17,7 @@ function PatientCard({ patient, onDeletePatient }) {
         console.error('Error deleting patient: ', error);
       });
   }
-
+  console.log(patient);
   return (
     <div className='card'>
       <h3>Name: {patient.name}</h3>

@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function AppointmentCard({ appointment, onDeleteAppointment }) {
+function AppointmentCard({
+  appointment,
+  onDeleteAppointment,
+  onDeleteAppointmentFromPatient,
+}) {
   function handleDelete() {
     fetch(`/appointments/${appointment.id}`, {
       method: 'DELETE',
     })
       .then((r) => {
         if (r.ok) {
+          console.log(appointment);
           onDeleteAppointment(appointment.id);
+          onDeleteAppointmentFromPatient(appointment);
         } else {
           console.log(r.errors);
         }

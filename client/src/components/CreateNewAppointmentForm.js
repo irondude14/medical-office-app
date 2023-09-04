@@ -56,6 +56,7 @@ function CreateNewAppointmentForm() {
             updatePatient({
               id: app.patient_id,
               newUser: app.user,
+              newAppointment: app,
             })
           );
           navigate('/admin-dashboard');
