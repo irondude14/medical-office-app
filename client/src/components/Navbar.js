@@ -9,7 +9,10 @@ function Navbar() {
   return (
     <>
       <header className='header'>
-        <p className='logo'>Logo</p>
+        <p className='logo'>
+          <box-icon name='injection' type='solid' size='md'></box-icon> Woodside
+          Medical Office
+        </p>
         <ul className='navbar'>
           {user ? (
             <>
