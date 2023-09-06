@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { updateTestResult } from '../features/users/UsersSlice';
 
 function TestResultUpdateForm() {
@@ -11,6 +11,10 @@ function TestResultUpdateForm() {
   const testResult = user.test_results.find(
     (t) => t.id === parseInt(testResultID)
   );
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const patientId = queryParams.get('patientId');
 
   const [updateTestInfo, setUpdatedTestInfo] = useState({
     result: testResult.result,
@@ -66,7 +70,15 @@ function TestResultUpdateForm() {
             onChange={handleInputChange}
           />
         </div>
-        <input type='submit' value='Update' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='UPDATE' id='submitBtn' className='btn' />
+          <button
+            className='btn'
+            onClick={() => navigate(`/patient-details/${parseInt(patientId)}`)}
+          >
+            BACK
+          </button>
+        </div>
       </form>
     </div>
   );

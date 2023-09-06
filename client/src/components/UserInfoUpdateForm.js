@@ -26,7 +26,6 @@ function UserInfoUpdate() {
           dispatch(login({ ...user, ...updatedUserInfo }));
           navigate('/profile');
         } else {
-          setUpdateInfo({});
           const currentErrors = updatedUserInfo.errors.map((e, index) => (
             <li key={index}>{e}</li>
           ));
@@ -91,7 +90,12 @@ function UserInfoUpdate() {
             onChange={handleUserInfo}
           />
         </div>
-        <input type='submit' value='UPDATE' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='UPDATE' id='submitBtn' className='btn' />
+          <button className='btn' onClick={() => navigate('/profile')}>
+            CANCEL
+          </button>
+        </div>
       </form>
     </div>
   );

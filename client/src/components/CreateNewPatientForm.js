@@ -46,13 +46,6 @@ function CreateNewPatientForm() {
           dispatch(addPatient(patient));
           navigate('/admin-dashboard');
         } else {
-          setPatientInfo({
-            name: '',
-            email: '',
-            phone: '',
-            address: '',
-            insurance: '',
-          });
           const currentErrors = patient.errors.map((e, index) => (
             <li key={index}>{e}</li>
           ));
@@ -118,7 +111,12 @@ function CreateNewPatientForm() {
             onChange={handlePatientInfo}
           />
         </div>
-        <input type='submit' value='Register' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='CREATE' id='submitBtn' className='btn' />
+          <button onClick={() => navigate('/admin-dashboard')} className='btn'>
+            BACK
+          </button>
+        </div>
       </form>
     </div>
   );

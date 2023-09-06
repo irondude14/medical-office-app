@@ -114,7 +114,12 @@ function CreateNewAppointmentForm() {
         </div>
         <h3>Choose Date & Time</h3>
         <Datetime value={appointment.date_time} onChange={handleDateChange} />
-        <input type='submit' value='Create' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='CREATE' id='submitBtn' className='btn' />
+          <button onClick={() => navigate('/admin-dashboard')} className='btn'>
+            BACK
+          </button>
+        </div>
       </form>
     </div>
   );

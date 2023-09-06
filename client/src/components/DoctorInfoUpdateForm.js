@@ -54,7 +54,6 @@ function DoctorInfoUpdateForm() {
           dispatch(updateDoctor(updatedDoctorInfo));
           navigate('/admin-dashboard');
         } else {
-          setUpdateInfo({});
           const currentErrors = updatedDoctorInfo.errors.map((e, index) => (
             <li key={index}>{e}</li>
           ));
@@ -112,7 +111,12 @@ function DoctorInfoUpdateForm() {
             onChange={handleDoctorInfo}
           />
         </div>
-        <input type='submit' value='Edit' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='EDIT' id='submitBtn' className='btn' />
+          <button onClick={() => navigate('/admin-dashboard')} className='btn'>
+            BACK
+          </button>
+        </div>
       </form>
     </div>
   );

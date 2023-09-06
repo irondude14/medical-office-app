@@ -20,9 +20,11 @@ function Profile() {
         <p>Email: {user.email}</p>
         <p>Phone: {user.phone}</p>
         <p>Position: {user.type}</p>
-        <button className='btn'>
-          <Link to={`/user-edit`}>UPDATE</Link>
-        </button>
+        <div className='button-container'>
+          <button className='btn'>
+            <Link to={`/user-edit`}>UPDATE</Link>
+          </button>
+        </div>
       </div>
     );
   } else {

@@ -151,29 +151,6 @@ code {
   position: relative;
 }
 
-.btn {
-  margin-bottom: 20px;
-}
-
-.btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.1); /* The fill color */
-  transition: width 0.4s ease;
-}
-
-.btn:active::after {
-  width: 100%;
-}
-
-.btn:active {
-  color: #fff;
-}
-
 .wrapper-general {
   width: 420px;
   background: transparent;
@@ -197,7 +174,7 @@ code {
 }
 
 .wrapper-general .btn {
-  width: 100%;
+  width: 45%;
   height: 45px;
   background: #fff;
   border: none;
@@ -209,12 +186,13 @@ code {
   color: #333;
   font-weight: 600;
 
-  margin: 15px auto auto;
-  display: block;
+  margin: auto auto;
+}
 
-  overflow: hidden;
-  transition: color 0.4s;
-  position: relative;
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
 .wrapper-general a {

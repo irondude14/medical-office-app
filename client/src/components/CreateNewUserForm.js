@@ -51,12 +51,7 @@ function CreateNewUserForm() {
           }
         } else {
           setUserInfo({
-            name: '',
-            email: '',
-            phone: '',
             password: '',
-            type: '',
-            specialization: '',
           });
           const currentErrors = user.errors.map((e, index) => (
             <li key={index}>{e}</li>
@@ -134,7 +129,12 @@ function CreateNewUserForm() {
             onChange={handleUserInfo}
           />
         </div>
-        <input type='submit' value='Register' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='CREATE' id='submitBtn' className='btn' />
+          <button onClick={() => navigate('/admin-dashboard')} className='btn'>
+            BACK
+          </button>
+        </div>
       </form>
     </div>
   );

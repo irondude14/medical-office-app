@@ -76,7 +76,15 @@ function CreateNewTest() {
             onChange={handleInputChange}
           />
         </div>
-        <input type='submit' value='Create' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='CREATE' id='submitBtn' className='btn' />
+          <button
+            className='btn'
+            onClick={() => navigate(`/patient-details/${parseInt(patientID)}`)}
+          >
+            BACK
+          </button>
+        </div>
       </form>
     </div>
   );

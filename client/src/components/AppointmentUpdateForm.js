@@ -65,7 +65,6 @@ function AppointmentUpdateForm() {
           dispatch(updateAppointment(updatedAppointmentInfo));
           navigate('/admin-dashboard');
         } else {
-          setUpdateInfo({});
           const currentErrors = updatedAppointmentInfo.errors.map(
             (e, index) => <li key={index}>{e}</li>
           );
@@ -108,7 +107,12 @@ function AppointmentUpdateForm() {
         </div>
         <h3>Choose Date & Time: </h3>
         <Datetime value={formattedDate} onChange={handleDateChange} />
-        <input type='submit' value='Edit' id='submitBtn' className='btn' />
+        <div className='button-container'>
+          <input type='submit' value='EDIT' id='submitBtn' className='btn' />
+          <button onClick={() => navigate('/admin-dashboard')} className='btn'>
+            BACK
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -28,9 +28,14 @@ function PatientDetails() {
         patientId={parseInt(patientID)}
         testResults={user.test_results}
       />
-      <button className='btn'>
-        <Link to={`/new-test/${patientID}`}>New Test</Link>
-      </button>
+      <div className='button-container'>
+        <button className='btn'>
+          <Link to={`/new-test/${patientID}`}>NEW TEST</Link>
+        </button>
+        <button onClick={() => navigate('/doctor-dashboard')} className='btn'>
+          BACK
+        </button>
+      </div>
     </div>
   );
 }
