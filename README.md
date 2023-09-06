@@ -30,9 +30,19 @@ Note: Admin can't delete or update information for other Admins.
 Doctors can:
 
 - Can see his Patients & upcoming Appointments
-- Can See Test Results of their patients
+- Can see Test Results of their patients
 - Can Create new Tests & update them
 
-```
+## Testing the application
 
-```
+If you want to test the application, you can test the latest build live, head to:
+https://medical-office-app.onrender.com
+
+Login information:
+
+1. Admin
+   Email: admintest@gmail.com
+   Password: qwerty
+2. Doctor
+   Email: doctortest@gmail.com
+   Password: qwerty
