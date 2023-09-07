@@ -7,7 +7,8 @@ class Patient < ApplicationRecord
   validates :phone,
             presence: true,
             format: {
-              with: /\A\+?\d{10,11}\z/,
+              with:
+                /\A(\+\d{10,11}|(\(\d{3}\) \d{3}-\d{4}|\d{3}-\d{3}-\d{4}))\z/,
               message: 'is invalid',
             }
 
