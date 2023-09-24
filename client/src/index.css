@@ -482,3 +482,13 @@ select:last-of-type {
   z-index: 0;
   filter: none;
 }
+
+.search-bar {
+  margin-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  width: 150px;
+  box-sizing: border-box;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  filter: none;
+}

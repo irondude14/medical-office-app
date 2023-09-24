@@ -11,6 +11,7 @@ import { removeAppointmentFromPatient } from '../features/users/PatientsSlice';
 
 function DashboardAdmin() {
   const [activeTab, setActiveTab] = useState('doctors');
+  const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.value);
@@ -39,6 +40,22 @@ function DashboardAdmin() {
       navigate('/profile');
     }
   }, [user, navigate]);
+
+  const filteredDoctors = doctors.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredPatients = patients.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredAppointments = appointments.filter(({ user, patient }) => {
+    const lowerCaseTerm = searchTerm.toLowerCase();
+    return (
+      user.name.toLowerCase().includes(lowerCaseTerm) ||
+      patient.name.toLowerCase().includes(lowerCaseTerm)
+    );
+  });
 
   return (
     <div className='wrapper-dashboard'>
@@ -74,39 +91,70 @@ function DashboardAdmin() {
             Appointments
           </button>
         </div>
+
         {activeTab === 'doctors' && (
-          <div className='card-container'>
-            {doctors.map((doctor) => (
-              <DoctorCard
-                key={doctor.id}
-                doctor={doctor}
-                onDeleteDoctor={onDeleteDoctor}
-              />
-            ))}
+          <div>
+            <input
+              className='search-bar'
+              type='text'
+              placeholder='Search...'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <div className='card-container'>
+              {filteredDoctors.map((doctor) => (
+                <DoctorCard
+                  key={doctor.id}
+                  doctor={doctor}
+                  onDeleteDoctor={onDeleteDoctor}
+                />
+              ))}
+            </div>
           </div>
         )}
 
         {activeTab === 'patients' && (
-          <div className='card-container'>
-            {patients.map((patient) => (
-              <PatientCard
-                key={patient.id}
-                patient={patient}
-                onDeletePatient={onDeletePatient}
-              />
-            ))}
+          <div>
+            <input
+              className='search-bar'
+              type='text'
+              placeholder='Search...'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            <div className='card-container'>
+              {filteredPatients.map((patient) => (
+                <PatientCard
+                  key={patient.id}
+                  patient={patient}
+                  onDeletePatient={onDeletePatient}
+                />
+              ))}
+            </div>
           </div>
         )}
         {activeTab === 'appointments' && (
-          <div className='card-container'>
-            {appointments.map((appointment) => (
-              <AppointmentCard
-                key={appointment.id}
-                appointment={appointment}
-                onDeleteAppointment={onDeleteAppointment}
-                onDeleteAppointmentFromPatient={onDeleteAppointmentFromPatient}
-              />
-            ))}
+          <div>
+            <input
+              className='search-bar'
+              type='text'
+              placeholder='Search...'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <div className='card-container'>
+              {filteredAppointments.map((appointment) => (
+                <AppointmentCard
+                  key={appointment.id}
+                  appointment={appointment}
+                  onDeleteAppointment={onDeleteAppointment}
+                  onDeleteAppointmentFromPatient={
+                    onDeleteAppointmentFromPatient
+                  }
+                />
+              ))}
+            </div>
           </div>
         )}
       </div>
