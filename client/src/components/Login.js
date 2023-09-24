@@ -5,6 +5,7 @@ import { login } from '../features/users/UsersSlice';
 import { setDoctors } from '../features/users/DoctorsSlice';
 import { setPatients } from '../features/users/PatientsSlice';
 import { setAppointments } from '../features/users/AppointmentsSlice';
+import { BiSolidLock, BiSolidEnvelope } from 'react-icons/bi';
 
 function Login() {
   const [credentials, setCredentials] = useState({
@@ -77,7 +78,15 @@ function Login() {
             name='email'
             onChange={handleCredentials}
           />
-          <box-icon name='envelope' type='solid'></box-icon>
+          <BiSolidEnvelope
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '15px',
+              fontSize: '28px',
+              color: 'black',
+            }}
+          />
         </div>
         <div className='input-box'>
           <input
@@ -87,7 +96,15 @@ function Login() {
             name='password'
             onChange={handleCredentials}
           />
-          <box-icon name='lock-alt' type='solid'></box-icon>
+          <BiSolidLock
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '15px',
+              fontSize: '28px',
+              color: 'black',
+            }}
+          />
         </div>
         <button
           id='submitBtn'

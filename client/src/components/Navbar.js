@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import 'boxicons';
+import {
+  MdDashboard,
+  MdAccountCircle,
+  MdLogin,
+  MdLogout,
+} from 'react-icons/md';
+import { FaHospital } from 'react-icons/fa';
 
 function Navbar() {
   const user = useSelector((state) => state.user.value);
@@ -10,25 +16,25 @@ function Navbar() {
     <>
       <header className='header'>
         <p className='logo'>
-          <box-icon name='injection' type='solid' size='md'></box-icon>
+          <FaHospital style={{ fontSize: '32px', color: 'black' }} />
         </p>
         <ul className='navbar'>
           {user ? (
             <>
               <li>
                 <Link to='/profile' data-label='Profile'>
-                  <box-icon name='user' size='md'></box-icon>
+                  <MdAccountCircle
+                    style={{ fontSize: '36px', color: 'black' }}
+                  />
                 </Link>
               </li>
               {user && user.type === 'Admin' ? (
                 <>
                   <li>
                     <Link to='/admin-dashboard' data-label='Dashboard'>
-                      <box-icon
-                        name='bar-chart-square'
-                        type='solid'
-                        size='md'
-                      ></box-icon>
+                      <MdDashboard
+                        style={{ fontSize: '36px', color: 'black' }}
+                      />
                     </Link>
                   </li>
                 </>
@@ -36,18 +42,16 @@ function Navbar() {
                 <>
                   <li>
                     <Link to='/doctor-dashboard' data-label='Dashboard'>
-                      <box-icon
-                        name='bar-chart-square'
-                        type='solid'
-                        size='md'
-                      ></box-icon>
+                      <MdDashboard
+                        style={{ fontSize: '36px', color: 'black' }}
+                      />
                     </Link>
                   </li>
                 </>
               )}
               <li>
                 <Link to='/logout' data-label='Logout'>
-                  <box-icon name='log-out' size='md'></box-icon>
+                  <MdLogout style={{ fontSize: '36px', color: 'black' }} />
                 </Link>
               </li>
             </>
@@ -55,7 +59,7 @@ function Navbar() {
             <>
               <li>
                 <Link to='/login' data-label='Login'>
-                  <box-icon name='log-in' size='md'></box-icon>
+                  <MdLogin style={{ fontSize: '36px', color: 'black' }} />
                 </Link>
               </li>
             </>
