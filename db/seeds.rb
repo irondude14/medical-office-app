@@ -31,7 +31,7 @@ User.create(
   email: 'admintest@gmail.com',
   phone: '+19174208787',
   password: 'qwerty',
-  type: 'Doctor',
+  type: 'Admin',
   specialization: 'physician',
 )
 
