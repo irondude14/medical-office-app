@@ -6,45 +6,63 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts 'Seeding 🌱...'
+puts 'Seeding 🌱...'
 
-# User.create(
-#   name: 'Vlad Kadyrov',
-#   email: 'vkadyrov@gmail.com',
-#   phone: '+17184136666',
-#   password: '123',
-#   type: 'Admin',
-#   specialization: 'none',
-# )
+User.create(
+  name: 'Vlad Kadyrov',
+  email: 'vkadyrov@gmail.com',
+  phone: '+17184136666',
+  password: '123',
+  type: 'Admin',
+  specialization: 'none',
+)
 
-# User.create(
-#   name: 'Andrew Yang',
-#   email: 'ayang@gmail.com',
-#   phone: '+19174208787',
-#   password: '123',
-#   type: 'Doctor',
-#   specialization: 'physician',
-# )
+User.create(
+  name: 'Andrew Yang',
+  email: 'ayang@gmail.com',
+  phone: '+19174208787',
+  password: '123',
+  type: 'Doctor',
+  specialization: 'physician',
+)
 
-# Patient.create(
-#   email: 'edubicki@gmail.com',
-#   name: 'Edison Dubicki',
-#   address: '2 1st St, Elizabeth, NJ 07206',
-#   phone: '+19084335050',
-#   insurance: 'fidelis',
-# )
+User.create(
+  name: 'Test Admin',
+  email: 'admintest@gmail.com',
+  phone: '+19174208787',
+  password: 'qwerty',
+  type: 'Doctor',
+  specialization: 'physician',
+)
 
-# Appointment.create(
-#   user_id: 2,
-#   patient_id: 1,
-#   date_time: '2023-08-25 11:30',
-#   reason: 'pain in the abdomen',
-# )
+User.create(
+  name: 'Test Doctor',
+  email: 'doctortest@gmail.com',
+  phone: '+19174208787',
+  password: 'qwerty',
+  type: 'Doctor',
+  specialization: 'physician',
+)
 
-# TestResult.create(
-#   patient_id: 1,
-#   test_name: 'abdominal examination',
-#   result: 'pain the lower right side of the abdomen',
-# )
+Patient.create(
+  email: 'edubicki@gmail.com',
+  name: 'Edison Dubicki',
+  address: '2 1st St, Elizabeth, NJ 07206',
+  phone: '+19084335050',
+  insurance: 'fidelis',
+)
 
-# puts 'Done ✅'
+Appointment.create(
+  user_id: 2,
+  patient_id: 1,
+  date_time: '2023-08-25 11:30',
+  reason: 'pain in the abdomen',
+)
+
+TestResult.create(
+  patient_id: 1,
+  test_name: 'abdominal examination',
+  result: 'pain the lower right side of the abdomen',
+)
+
+puts 'Done ✅'
