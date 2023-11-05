@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :test_results, only: %i[create update]
   resources :appointments, only: %i[show create update destroy]
   resources :patients, only: %i[show create update destroy]
-  resources :users, only: %i[show update]
+  resources :users, only: %i[show create update]
   resources :admins, only: %i[create]
   resources :doctors, only: %i[update destroy]
 

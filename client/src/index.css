@@ -492,3 +492,9 @@ select:last-of-type {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   filter: none;
 }
+
+.signup-link {
+  margin-top: 5px;
+  margin-right: 5px;
+  text-align: right;
+}

@@ -16,6 +16,7 @@ import AppointmentUpdateForm from './components/AppointmentUpdateForm';
 import TestResultUpdateForm from './components/TestResultUpdateForm';
 import CreateNewTest from './components/CreateNewTest';
 import PatientDetails from './components/PatientDetails';
+import Signup from './components/Signup';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
             path='patient-details/:patientID'
             element={<PatientDetails />}
           />
+          <Route path='/sign-up' element={<Signup />} />
         </Route>
       </Routes>
     </div>

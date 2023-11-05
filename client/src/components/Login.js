@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../features/users/UsersSlice';
 import { setDoctors } from '../features/users/DoctorsSlice';
@@ -114,6 +114,9 @@ function Login() {
         >
           LOGIN
         </button>
+        <div className='signup-link'>
+          <Link to={`/sign-up`}>Sign Up</Link>
+        </div>
       </form>
     </div>
   );
