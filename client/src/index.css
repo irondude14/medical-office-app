@@ -498,3 +498,8 @@ select:last-of-type {
   margin-right: 5px;
   text-align: right;
 }
+
+.highlight {
+  background: #ffcc00;
+  color: cyan;
+}
