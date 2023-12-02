@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import DoctorCard from './DoctorCard';
 import PatientCard from './PatientCard';
 import AppointmentCard from './AppointmentCard';
+import DashboardCalendar from './DashboardCalendar';
 import { removeDoctor } from '../features/users/DoctorsSlice';
 import { removePatient } from '../features/users/PatientsSlice';
 import { removeAppointment } from '../features/users/AppointmentsSlice';
@@ -90,6 +91,12 @@ function DashboardAdmin() {
           >
             Appointments
           </button>
+          <button
+            onClick={() => setActiveTab('calendar')}
+            className={activeTab === 'calendar' ? 'active' : ''}
+          >
+            Calendar
+          </button>
         </div>
 
         {activeTab === 'doctors' && (
@@ -155,6 +162,11 @@ function DashboardAdmin() {
                 />
               ))}
             </div>
+          </div>
+        )}
+        {activeTab === 'calendar' && (
+          <div className='card-container'>
+            <DashboardCalendar appointments={appointments} />
           </div>
         )}
       </div>
